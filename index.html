@@ -1,0 +1,895 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Golden Oak Painting — Top-Rated Painters in Washington</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+:root{
+  /* Whites & creams */
+  --bg:       #ffffff;
+  --bg2:      #f7f9f5;
+  --bg3:      #eef4ea;
+  --bg4:      #e4eddf;
+  --bg5:      #d6e9cc;
+
+  /* Borders */
+  --border:   rgba(34,120,50,0.14);
+  --border2:  rgba(34,120,50,0.28);
+
+  /* Gold */
+  --gold:     #a58126;
+  --gold2:    #c9a84c;
+  --gold3:    #f0d080;
+  --gold-dim: rgba(165,129,38,0.12);
+  --gold-bg:  rgba(201,168,76,0.1);
+
+  /* Green */
+  --green:    #1e7a3e;
+  --green2:   #27a351;
+  --green3:   #43c26d;
+  --green-dim:rgba(30,122,62,0.1);
+  --green-bg: rgba(30,122,62,0.06);
+
+  /* Text */
+  --text:     #1a2e1c;
+  --text2:    #3d5c42;
+  --text3:    #6e8f72;
+  --text4:    #9db59f;
+
+  --r:8px;
+  --r2:12px;
+  --shadow: 0 2px 16px rgba(30,122,62,0.1);
+  --shadow2:0 8px 40px rgba(30,122,62,0.14);
+}
+body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);overflow-x:hidden;line-height:1.6}
+::-webkit-scrollbar{width:4px}
+::-webkit-scrollbar-track{background:var(--bg3)}
+::-webkit-scrollbar-thumb{background:var(--gold);border-radius:4px}
+
+/* ── PROGRESS BAR ── */
+.progress-bar{position:fixed;top:0;left:0;height:3px;background:linear-gradient(90deg,var(--green),var(--gold),var(--green2));z-index:200;width:0;transition:width 0.1s}
+
+/* ── NAV ── */
+nav{position:fixed;top:3px;left:0;right:0;z-index:100;background:rgba(255,255,255,0.95);backdrop-filter:blur(16px);border-bottom:1px solid var(--border);height:64px;display:flex;align-items:center;padding:0 2rem;box-shadow:0 1px 12px rgba(30,122,62,0.08)}
+.nav-inner{max-width:1200px;margin:0 auto;width:100%;display:flex;align-items:center;gap:2rem}
+.nav-logo{display:flex;align-items:center;gap:0.6rem;text-decoration:none;flex-shrink:0}
+.nav-logo img{height:38px;width:auto}
+.nav-logo-text{font-size:1.05rem;font-weight:800;color:var(--text)}
+.nav-links{display:flex;gap:0;list-style:none;margin-left:1rem}
+.nav-links a{padding:0.5rem 1rem;font-size:0.87rem;color:var(--text3);text-decoration:none;border-radius:6px;transition:color 0.2s;position:relative;font-weight:500}
+.nav-links a.active{color:var(--green)}
+.nav-links a.active::after{content:'';position:absolute;bottom:-1px;left:1rem;right:1rem;height:2px;background:var(--gold);border-radius:2px}
+.nav-links a:hover{color:var(--green)}
+.nav-right{margin-left:auto;display:flex;gap:0.6rem;align-items:center}
+.nav-btn{padding:0.45rem 1rem;border-radius:20px;font-size:0.82rem;font-weight:600;text-decoration:none;border:1.5px solid var(--border2);color:var(--text2);background:transparent;cursor:pointer;display:flex;align-items:center;gap:0.4rem;transition:all 0.2s}
+.nav-btn:hover{border-color:var(--gold);color:var(--gold)}
+.nav-btn-primary{background:var(--green);color:#fff;border:none;padding:0.5rem 1.15rem;border-radius:20px;font-size:0.82rem;font-weight:700;text-decoration:none;display:flex;align-items:center;gap:0.4rem;transition:all 0.2s}
+.nav-btn-primary:hover{background:var(--gold);color:#fff;transform:translateY(-1px)}
+
+/* ── FLOATING SOCIAL ── */
+.social-float{position:fixed;left:0;top:50%;transform:translateY(-50%);z-index:50;display:flex;flex-direction:column;gap:0}
+.sf-btn{width:44px;height:44px;display:flex;align-items:center;justify-content:center;background:#fff;border:1px solid var(--border2);color:var(--text3);text-decoration:none;font-size:1rem;transition:all 0.2s}
+.sf-btn:first-child{border-radius:0 6px 0 0}
+.sf-btn:last-child{border-radius:0 0 6px 0}
+.sf-btn:hover{background:var(--green-dim);color:var(--green);border-color:var(--green)}
+
+/* ── SCROLL TOP ── */
+.scroll-top{position:fixed;right:1.5rem;bottom:1.5rem;z-index:50;width:40px;height:40px;background:#fff;border:1.5px solid var(--border2);border-radius:8px;color:var(--text2);display:flex;align-items:center;justify-content:center;cursor:pointer;text-decoration:none;font-size:1.1rem;transition:all 0.2s;opacity:0;box-shadow:var(--shadow)}
+.scroll-top.visible{opacity:1}
+.scroll-top:hover{background:var(--green);color:#fff;border-color:var(--green)}
+
+/* ── SECTIONS ── */
+section{padding:5rem 2rem}
+.section-inner{max-width:1200px;margin:0 auto}
+.section-badge{display:inline-flex;align-items:center;gap:0.5rem;background:var(--green-dim);border:1px solid var(--border2);border-radius:20px;padding:0.3rem 0.9rem;font-size:0.75rem;font-weight:600;color:var(--green);margin-bottom:1.25rem}
+.section-title{font-size:clamp(1.8rem,3vw,2.6rem);font-weight:800;color:var(--text);text-align:center;letter-spacing:-0.01em}
+.section-title span{color:var(--gold)}
+.section-sub{font-size:0.95rem;color:var(--text3);text-align:center;margin:0.6rem auto 0;max-width:560px}
+
+/* ── HERO ── */
+#hero{
+  padding-top:7rem;padding-bottom:3rem;
+  background:linear-gradient(160deg, var(--bg2) 0%, #fff 50%, var(--bg3) 100%);
+  position:relative;overflow:hidden;
+}
+#hero::before{
+  content:'';position:absolute;top:-200px;right:-200px;
+  width:700px;height:700px;border-radius:50%;
+  background:radial-gradient(circle,rgba(201,168,76,0.1) 0%,transparent 70%);
+  pointer-events:none;
+}
+#hero::after{
+  content:'';position:absolute;bottom:-150px;left:-150px;
+  width:500px;height:500px;border-radius:50%;
+  background:radial-gradient(circle,rgba(30,122,62,0.07) 0%,transparent 70%);
+  pointer-events:none;
+}
+.hero-inner{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 1.05fr;gap:4rem;align-items:center;position:relative;z-index:1}
+.hero-badge{display:inline-flex;align-items:center;gap:0.5rem;background:var(--green-dim);border:1px solid var(--border2);border-radius:20px;padding:0.35rem 1rem;font-size:0.75rem;font-weight:600;color:var(--green);margin-bottom:1.5rem}
+.hero-badge::before{content:'✦';font-size:0.7rem;color:var(--gold)}
+.hero-title{font-size:clamp(2.4rem,4.5vw,4rem);font-weight:800;line-height:1.1;color:var(--text);letter-spacing:-0.025em}
+.hero-title .accent{color:var(--gold)}
+.hero-title .accent2{color:var(--green)}
+.hero-sub{margin-top:1.2rem;font-size:1rem;color:var(--text2);line-height:1.75;max-width:480px}
+.hero-sub a{color:var(--gold);text-decoration:none;font-weight:600}
+.hero-sub a:hover{color:var(--green)}
+.hero-actions{display:flex;gap:0.75rem;margin-top:2rem;flex-wrap:wrap}
+.btn-primary{padding:0.78rem 1.6rem;border-radius:8px;background:var(--green);color:#fff;font-size:0.88rem;font-weight:700;text-decoration:none;display:flex;align-items:center;gap:0.5rem;transition:all 0.25s;border:none;cursor:pointer;box-shadow:0 4px 16px rgba(30,122,62,0.25)}
+.btn-primary:hover{background:var(--gold);transform:translateY(-2px);box-shadow:0 8px 24px rgba(165,129,38,0.3)}
+.btn-ghost{padding:0.78rem 1.6rem;border-radius:8px;border:1.5px solid var(--border2);color:var(--text2);font-size:0.88rem;font-weight:600;text-decoration:none;display:flex;align-items:center;gap:0.5rem;transition:all 0.25s;background:#fff}
+.btn-ghost:hover{border-color:var(--gold);color:var(--gold)}
+.hero-stats{display:flex;gap:2.5rem;margin-top:2.5rem}
+.stat-item{}
+.stat-num{font-size:1.6rem;font-weight:800;color:var(--text);display:flex;align-items:center;gap:0.4rem}
+.stat-icon{color:var(--gold);font-size:1rem}
+.stat-label{font-size:0.73rem;color:var(--text3);margin-top:0.1rem;font-weight:500;text-transform:uppercase;letter-spacing:0.04em}
+
+/* ── CHAT MOCKUP ── */
+.hero-chat{background:#fff;border:1.5px solid var(--border2);border-radius:14px;overflow:hidden;box-shadow:var(--shadow2)}
+.chat-titlebar{background:var(--bg3);border-bottom:1px solid var(--border);padding:0.7rem 1rem;display:flex;align-items:center;gap:0.5rem}
+.chat-dots{display:flex;gap:6px}
+.chat-dot{width:12px;height:12px;border-radius:50%}
+.chat-dot.red{background:#ff5f57}
+.chat-dot.yellow{background:#ffbd2e}
+.chat-dot.green{background:#28c840}
+.chat-title{margin-left:0.5rem;font-size:0.8rem;color:var(--text3);font-weight:500}
+.chat-body{padding:1rem;display:flex;flex-direction:column;gap:1rem;background:#fafcf8}
+.chat-msg{display:flex;align-items:flex-start;gap:0.6rem}
+.chat-msg.bot{flex-direction:row-reverse}
+.chat-avatar{width:32px;height:32px;border-radius:50%;background:var(--bg3);border:1.5px solid var(--border2);display:flex;align-items:center;justify-content:center;font-size:0.75rem;color:var(--text3);flex-shrink:0;overflow:hidden}
+.chat-avatar img{width:100%;height:100%;object-fit:cover}
+.chat-bubble{padding:0.65rem 0.95rem;border-radius:10px;font-size:0.8rem;line-height:1.55;max-width:88%}
+.chat-bubble.user{background:#fff;border:1px solid var(--border);color:var(--text);box-shadow:0 1px 4px rgba(30,122,62,0.07)}
+.chat-bubble.bot-msg{background:linear-gradient(135deg,rgba(30,122,62,0.07),rgba(201,168,76,0.07));border:1px solid var(--border2);color:var(--text);font-family:monospace;font-size:0.75rem;line-height:1.75}
+.chat-bubble.bot-msg .line-label{color:var(--gold);font-weight:700}
+.chat-bubble .token-name{color:var(--green);font-weight:700;font-size:0.82rem}
+.chat-input-row{border-top:1px solid var(--border);padding:0.7rem 1rem;display:flex;align-items:center;gap:0.5rem;background:#fff}
+.chat-input{flex:1;background:var(--bg2);border:1px solid var(--border);border-radius:8px;padding:0.5rem 0.8rem;font-size:0.8rem;color:var(--text2);outline:none}
+.chat-send{width:32px;height:32px;border-radius:50%;background:var(--green);border:none;color:#fff;display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:0.85rem;transition:background 0.2s}
+.chat-send:hover{background:var(--gold)}
+
+/* ── QUICK START ── */
+#quickstart{background:var(--bg2)}
+.qs-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:3rem}
+.qs-card{background:#fff;border:1.5px solid var(--border);border-radius:var(--r2);padding:1.75rem;position:relative;transition:all 0.25s;box-shadow:var(--shadow)}
+.qs-card.active{border-color:var(--gold);background:linear-gradient(135deg,rgba(201,168,76,0.04),#fff)}
+.qs-card:hover{border-color:var(--gold);transform:translateY(-4px);box-shadow:var(--shadow2)}
+.qs-num{position:absolute;top:-14px;left:50%;transform:translateX(-50%);width:28px;height:28px;border-radius:50%;background:var(--gold);color:#fff;font-size:0.78rem;font-weight:800;display:flex;align-items:center;justify-content:center}
+.qs-icon{width:52px;height:52px;border-radius:10px;background:var(--green-dim);border:1px solid var(--border2);display:flex;align-items:center;justify-content:center;font-size:1.4rem;margin-bottom:1.25rem}
+.qs-card-title{font-size:1.05rem;font-weight:700;color:var(--text);margin-bottom:0.5rem}
+.qs-card-title.accent{color:var(--gold)}
+.qs-card-desc{font-size:0.85rem;color:var(--text2);line-height:1.65;margin-bottom:1.25rem}
+.qs-btns{display:flex;flex-direction:column;gap:0.6rem}
+.btn-green-sm{padding:0.55rem 1rem;border-radius:7px;background:var(--green);color:#fff;font-size:0.8rem;font-weight:600;text-decoration:none;display:flex;align-items:center;gap:0.4rem;transition:all 0.2s;justify-content:center}
+.btn-green-sm:hover{background:var(--gold)}
+.btn-gold-sm{padding:0.55rem 1rem;border-radius:7px;background:var(--gold-bg);border:1.5px solid var(--gold);color:var(--gold);font-size:0.8rem;font-weight:600;text-decoration:none;display:flex;align-items:center;gap:0.4rem;transition:all 0.2s;justify-content:center}
+.btn-gold-sm:hover{background:var(--gold);color:#fff}
+.qs-commands{margin-top:0.75rem}
+.qs-cmd-label{font-size:0.72rem;color:var(--text3);margin-bottom:0.5rem;font-weight:500}
+.qs-chips{display:flex;flex-wrap:wrap;gap:0.4rem}
+.qs-chip{padding:0.25rem 0.65rem;background:var(--bg3);border:1px solid var(--border2);border-radius:5px;font-size:0.72rem;font-family:monospace;color:var(--text2);font-weight:500}
+
+/* ── ABOUT ── */
+#about{background:#fff}
+.about-grid{display:grid;grid-template-columns:0.9fr 1.1fr;gap:5rem;align-items:center}
+.about-img-wrapper{border-radius:16px;overflow:hidden;border:2px solid var(--border);aspect-ratio:1;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,var(--bg2),var(--bg3));box-shadow:var(--shadow2)}
+.about-img-wrapper img{width:100%;height:100%;object-fit:contain;padding:1.5rem}
+.about-title{font-size:clamp(1.8rem,3vw,2.5rem);font-weight:800;color:var(--text);line-height:1.2;margin-bottom:1rem;letter-spacing:-0.01em}
+.about-title span{color:var(--gold)}
+.about-desc{font-size:0.95rem;color:var(--text2);line-height:1.8;margin-bottom:2rem}
+.about-points{display:flex;flex-direction:column;gap:0.85rem;margin-bottom:2rem}
+.about-point{display:flex;align-items:flex-start;gap:0.85rem;padding:0.9rem;border-radius:10px;background:var(--bg2);border:1px solid var(--border);transition:all 0.2s}
+.about-point:hover{border-color:var(--gold);background:var(--gold-bg)}
+.apoint-icon{width:36px;height:36px;border-radius:8px;background:var(--green-dim);border:1px solid var(--border2);display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0}
+.apoint-title{font-weight:700;color:var(--text);font-size:0.92rem}
+.apoint-desc{font-size:0.82rem;color:var(--text2)}
+.btn-docs{display:inline-flex;align-items:center;gap:0.5rem;padding:0.78rem 1.6rem;border-radius:8px;background:var(--green);color:#fff;font-size:0.88rem;font-weight:700;text-decoration:none;transition:all 0.2s;box-shadow:0 4px 16px rgba(30,122,62,0.2)}
+.btn-docs:hover{background:var(--gold);box-shadow:0 4px 16px rgba(165,129,38,0.3);transform:translateY(-1px)}
+
+/* ── SERVICES ── */
+#services{background:var(--bg2)}
+.services-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;margin-top:3rem}
+.svc-card{background:#fff;border:1.5px solid var(--border);border-radius:var(--r2);padding:1.5rem;transition:all 0.25s;cursor:default;box-shadow:var(--shadow)}
+.svc-card:hover{border-color:var(--gold);transform:translateY(-5px);box-shadow:var(--shadow2)}
+.svc-icon{width:48px;height:48px;border-radius:10px;background:var(--green-dim);border:1px solid var(--border2);display:flex;align-items:center;justify-content:center;font-size:1.3rem;margin-bottom:1rem}
+.svc-title{font-weight:700;color:var(--text);font-size:0.95rem;margin-bottom:0.4rem}
+.svc-desc{font-size:0.8rem;color:var(--text2);line-height:1.6}
+
+/* ── COMPARISON TABLE ── */
+#compare{background:#fff}
+.compare-table{width:100%;border-collapse:collapse;margin-top:3rem;background:#fff;border-radius:var(--r2);overflow:hidden;border:1.5px solid var(--border2);box-shadow:var(--shadow)}
+.compare-table th,.compare-table td{padding:0.9rem 1.1rem;text-align:center;border-bottom:1px solid var(--border);font-size:0.85rem}
+.compare-table th{font-weight:600;color:var(--text3);background:var(--bg2);font-size:0.78rem;letter-spacing:0.04em;text-transform:uppercase}
+.compare-table th:first-child,.compare-table td:first-child{text-align:left;color:var(--text);font-weight:500;padding-left:1.5rem}
+.compare-table tr:last-child td{border-bottom:none}
+.compare-table tr:hover td{background:rgba(201,168,76,0.03)}
+.col-us-td{background:rgba(201,168,76,0.07)!important;border-left:2px solid var(--gold)!important;border-right:2px solid var(--gold)!important}
+.col-us-head{background:rgba(201,168,76,0.12)!important;border-left:2px solid var(--gold)!important;border-right:2px solid var(--gold)!important;border-top:2px solid var(--gold)!important;color:var(--gold)!important;font-weight:800!important}
+.col-us-last{background:rgba(201,168,76,0.07)!important;border-left:2px solid var(--gold)!important;border-right:2px solid var(--gold)!important;border-bottom:2px solid var(--gold)!important}
+.check-yes{width:26px;height:26px;border-radius:50%;background:var(--green-dim);border:1.5px solid var(--green2);color:var(--green);display:inline-flex;align-items:center;justify-content:center;font-size:0.75rem;font-weight:800}
+.check-no{width:26px;height:26px;border-radius:50%;background:rgba(200,200,200,0.15);border:1.5px solid #d0d0d0;color:#c0c0c0;display:inline-flex;align-items:center;justify-content:center;font-size:0.7rem}
+.compare-logo{display:flex;flex-direction:column;align-items:center;gap:0.3rem}
+.compare-logo-img{width:36px;height:36px;border-radius:8px;object-fit:contain;background:var(--bg3);border:1px solid var(--border)}
+.compare-name{font-size:0.78rem;color:var(--text3)}
+.compare-name.ours{color:var(--gold);font-weight:800;font-size:0.82rem}
+.feat-icon{color:var(--text3);margin-right:0.5rem;font-size:0.85rem}
+.compare-cta{text-align:center;margin-top:2.5rem}
+.compare-cta p{font-size:1.1rem;font-weight:600;color:var(--text);margin-bottom:1rem}
+
+/* ── TESTIMONIALS ── */
+#testimonials{background:var(--bg2)}
+.testi-grid{display:flex;gap:1rem;margin-top:2.5rem;overflow-x:auto;padding-bottom:0.5rem}
+.testi-grid::-webkit-scrollbar{height:3px}
+.testi-grid::-webkit-scrollbar-thumb{background:var(--gold)}
+.testi-video-wrap{flex-shrink:0;border-radius:10px;overflow:hidden;border:1.5px solid var(--border2);transition:all 0.2s;box-shadow:var(--shadow)}
+.testi-video-wrap:hover{border-color:var(--gold);box-shadow:var(--shadow2);transform:translateY(-2px)}
+.testi-video-wrap iframe{display:block;border:none;width:200px;height:356px}
+
+/* ── FAQ ── */
+#faq{background:#fff}
+.faq-list{max-width:780px;margin:3rem auto 0;display:flex;flex-direction:column;gap:0.75rem}
+.faq-item{background:var(--bg2);border:1.5px solid var(--border);border-radius:var(--r2);overflow:hidden;transition:all 0.2s;box-shadow:var(--shadow)}
+.faq-item.open{border-color:var(--gold);background:#fff}
+.faq-q{padding:1.1rem 1.25rem;display:flex;align-items:center;gap:0.75rem;cursor:pointer;font-weight:600;color:var(--text);font-size:0.92rem;user-select:none}
+.faq-q-icon{color:var(--gold);font-size:0.9rem;flex-shrink:0}
+.faq-q .chevron{margin-left:auto;color:var(--text3);transition:transform 0.3s;font-size:0.85rem}
+.faq-item.open .chevron{transform:rotate(180deg);color:var(--gold)}
+.faq-a{max-height:0;overflow:hidden;transition:max-height 0.35s ease,padding 0.2s}
+.faq-item.open .faq-a{max-height:200px;padding:0 1.25rem 1.1rem}
+.faq-a-inner{display:flex;align-items:flex-start;gap:0.6rem;font-size:0.87rem;color:var(--text2);line-height:1.7}
+.faq-a-inner::before{content:'✦';color:var(--gold);font-size:0.7rem;margin-top:3px;flex-shrink:0}
+
+/* ── FINAL CTA ── */
+#finalcta{
+  background:linear-gradient(160deg, var(--green) 0%, #1a6434 40%, #2d7a40 100%);
+  text-align:center;padding:6rem 2rem;position:relative;overflow:hidden;
+}
+#finalcta::before{
+  content:'';position:absolute;top:-200px;left:50%;transform:translateX(-50%);
+  width:900px;height:600px;border-radius:50%;
+  background:radial-gradient(circle,rgba(201,168,76,0.15) 0%,transparent 70%);
+  pointer-events:none;
+}
+.finalcta-inner{max-width:680px;margin:0 auto;position:relative;z-index:1}
+.finalcta-logo{width:80px;height:80px;border-radius:16px;margin:0 auto 1.5rem;overflow:hidden;border:2px solid rgba(255,255,255,0.2);background:rgba(255,255,255,0.15)}
+.finalcta-logo img{width:100%;height:100%;object-fit:contain;padding:0.5rem}
+.finalcta-title{font-size:clamp(2rem,4vw,3rem);font-weight:800;color:#fff;line-height:1.15;margin-bottom:0.75rem;letter-spacing:-0.02em}
+.finalcta-title span{color:var(--gold3)}
+.finalcta-sub{font-size:0.95rem;color:rgba(255,255,255,0.8);line-height:1.75;margin-bottom:2rem}
+.finalcta-btns{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap}
+.btn-white{padding:0.9rem 2rem;border-radius:8px;background:#fff;color:var(--green);font-size:0.92rem;font-weight:700;text-decoration:none;display:flex;align-items:center;gap:0.5rem;transition:all 0.25s;box-shadow:0 4px 16px rgba(0,0,0,0.15)}
+.btn-white:hover{background:var(--gold3);color:var(--text);transform:translateY(-2px)}
+.btn-gold-lg{padding:0.9rem 2rem;border-radius:8px;background:var(--gold);color:#fff;font-size:0.92rem;font-weight:700;text-decoration:none;display:flex;align-items:center;gap:0.5rem;transition:all 0.25s;box-shadow:0 4px 16px rgba(165,129,38,0.3)}
+.btn-gold-lg:hover{background:var(--gold2);transform:translateY(-2px)}
+.finalcta-stats{display:flex;gap:2rem;justify-content:center;margin-top:2.5rem;flex-wrap:wrap}
+.fcstat{display:flex;align-items:center;gap:0.5rem;font-size:0.88rem;color:rgba(255,255,255,0.75)}
+.fcstat-num{font-size:1.3rem;font-weight:800;color:#fff}
+.fcstat-icon{color:var(--gold3)}
+
+/* ── FOOTER ── */
+footer{background:var(--bg2);border-top:1.5px solid var(--border);padding:4rem 2rem 2rem}
+.footer-inner{max-width:1200px;margin:0 auto}
+.footer-top{display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr;gap:3rem;margin-bottom:3rem}
+.footer-brand{display:flex;align-items:center;gap:0.6rem;margin-bottom:0.8rem}
+.footer-brand img{height:36px;width:auto}
+.footer-brand-name{font-size:1rem;font-weight:700;color:var(--text)}
+.footer-brand-desc{font-size:0.82rem;color:var(--text3);line-height:1.65;max-width:260px;margin-bottom:1rem}
+.footer-socials{display:flex;gap:0.5rem}
+.fsoc{width:34px;height:34px;border-radius:7px;background:#fff;border:1px solid var(--border2);color:var(--text2);display:flex;align-items:center;justify-content:center;text-decoration:none;font-size:0.85rem;transition:all 0.2s;box-shadow:var(--shadow)}
+.fsoc:hover{border-color:var(--gold);color:var(--gold)}
+.footer-col-title{font-size:0.78rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--text3);margin-bottom:1rem}
+.footer-links{list-style:none;display:flex;flex-direction:column;gap:0.55rem}
+.footer-links a{font-size:0.83rem;color:var(--text2);text-decoration:none;transition:color 0.2s}
+.footer-links a:hover{color:var(--gold)}
+.footer-bottom{border-top:1px solid var(--border);padding-top:1.5rem;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem}
+.footer-copy{font-size:0.78rem;color:var(--text3)}
+.footer-legal{display:flex;gap:1.5rem}
+.footer-legal a{font-size:0.78rem;color:var(--text3);text-decoration:none;transition:color 0.2s}
+.footer-legal a:hover{color:var(--gold)}
+
+/* ── ANIMATIONS ── */
+.reveal{opacity:0;transform:translateY(28px);transition:opacity 0.65s ease,transform 0.65s ease}
+.reveal.in{opacity:1;transform:none}
+
+@media(max-width:1024px){
+  .hero-inner{grid-template-columns:1fr}
+  .services-grid{grid-template-columns:repeat(2,1fr)}
+  .about-grid{grid-template-columns:1fr;gap:2.5rem}
+  .footer-top{grid-template-columns:1fr 1fr}
+}
+@media(max-width:768px){
+  nav .nav-links{display:none}
+  .qs-grid{grid-template-columns:1fr}
+  .services-grid{grid-template-columns:1fr 1fr}
+  .footer-top{grid-template-columns:1fr}
+  .social-float{display:none}
+}
+</style>
+</head>
+<body>
+<div class="progress-bar" id="progressBar"></div>
+
+<!-- FLOATING SOCIAL -->
+<div class="social-float">
+  <a href="#" class="sf-btn">𝕏</a>
+  <a href="tel:4257258134" class="sf-btn">✆</a>
+  <a href="#" class="sf-btn">★</a>
+</div>
+
+<!-- SCROLL TOP -->
+<a href="#hero" class="scroll-top" id="scrollTop">↑</a>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <a href="#hero" class="nav-logo">
+      <img src="https://cdn.prod.website-files.com/67cbada18d07464c05c5ebd4/68ad2a985d8bb816f4c9b958_GOP%20-%20Main%20Logo%20Transparent%20(1).png" alt="Golden Oak Painting">
+      <span class="nav-logo-text">Golden Oak Painting</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="#hero" class="active">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#testimonials">Reviews</a></li>
+      <li><a href="#faq">FAQ</a></li>
+    </ul>
+    <div class="nav-right">
+      <a href="tel:4257258134" class="nav-btn">☎ (425) 725-8134</a>
+      <a href="#finalcta" class="nav-btn-primary">Get Estimate ↗</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ── HERO ── -->
+<section id="hero">
+  <div class="hero-inner">
+    <div class="reveal">
+      <div class="hero-badge">🎨 Snohomish & King County's Trusted Painters</div>
+      <h1 class="hero-title">
+        Your Home<br>Deserves Expert<br>
+        <span class="accent">Painting</span> <span class="accent2">Done Right</span>
+      </h1>
+      <p class="hero-sub">Professional interior, exterior, and cabinet painting with <a href="#testimonials">50+ five-star reviews</a>. Fast, reliable, and backed by a <a href="#about">3-year warranty</a>.</p>
+      <div class="hero-actions">
+        <a href="tel:4257258134" class="btn-primary">
+          <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.44 2 2 0 0 1 3.58 1h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 8.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          Call Now
+        </a>
+        <a href="#testimonials" class="btn-ghost">▶ Watch Reviews</a>
+      </div>
+      <div class="hero-stats">
+        <div class="stat-item">
+          <div class="stat-num"><span class="stat-icon">⭐</span>50+</div>
+          <div class="stat-label">5-Star Reviews</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-num"><span class="stat-icon">🏠</span>5+</div>
+          <div class="stat-label">Yrs Experience</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-num"><span class="stat-icon">🛡</span>3yr</div>
+          <div class="stat-label">Warranty</div>
+        </div>
+      </div>
+    </div>
+    <!-- CHAT MOCKUP -->
+    <div class="reveal" style="transition-delay:0.15s">
+      <div class="hero-chat">
+        <div class="chat-titlebar">
+          <div class="chat-dots">
+            <div class="chat-dot red"></div>
+            <div class="chat-dot yellow"></div>
+            <div class="chat-dot green"></div>
+          </div>
+          <span class="chat-title">Golden Oak Painting — Free Estimate Request</span>
+        </div>
+        <div class="chat-body">
+          <div class="chat-msg">
+            <div class="chat-avatar"><span>👤</span></div>
+            <div class="chat-bubble user">Hi! I need exterior painting for my home in Bothell.</div>
+          </div>
+          <div class="chat-msg bot">
+            <div class="chat-avatar">
+              <img src="https://cdn.prod.website-files.com/67cbada18d07464c05c5ebd4/68fc0da2511a6544e79d4cd9_LOGO.png" alt="GOP" onerror="this.style.display='none';this.parentElement.innerHTML='🎨'">
+            </div>
+            <div class="chat-bubble bot-msg">
+<span class="token-name">🏡 Golden Oak Painting</span><br>
+<span class="line-label">Service  :</span> Exterior Painting<br>
+<span class="line-label">Location :</span> Bothell, WA (King County)<br>
+<span class="line-label">Warranty :</span> 3-Year Workmanship ✓<br>
+<span class="line-label">Rating   :</span> ⭐⭐⭐⭐⭐ 50+ Reviews<br>
+<span class="line-label">Schedule :</span> Free estimate within 24hrs
+            </div>
+          </div>
+          <div class="chat-msg">
+            <div class="chat-avatar"><span>👤</span></div>
+            <div class="chat-bubble user">Do you also do cabinet refinishing?</div>
+          </div>
+          <div class="chat-msg bot">
+            <div class="chat-avatar">
+              <img src="https://cdn.prod.website-files.com/67cbada18d07464c05c5ebd4/68fc0da2511a6544e79d4cd9_LOGO.png" alt="GOP" onerror="this.style.display='none';this.parentElement.innerHTML='🎨'">
+            </div>
+            <div class="chat-bubble bot-msg">
+<span class="token-name">Cabinet Refinishing ✓</span><br>
+Premium coatings + expert prep<br>
+Showroom finish, no full remodel 💰<br>
+<span class="line-label">→</span> Call (425) 725-8134 to book!
+            </div>
+          </div>
+        </div>
+        <div class="chat-input-row">
+          <input class="chat-input" placeholder="Write a message..." readonly>
+          <button class="chat-send">→</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── QUICK START ── -->
+<section id="quickstart">
+  <div class="section-inner">
+    <div style="text-align:center" class="reveal">
+      <div class="section-badge">⚡ Get Started in Simple Steps</div>
+      <h2 class="section-title">Start Your <span>Painting Project</span></h2>
+      <p class="section-sub">From first call to final walkthrough — no stress, no surprises. Just beautiful results.</p>
+    </div>
+    <div class="qs-grid reveal" style="transition-delay:0.1s">
+      <div class="qs-card active">
+        <div class="qs-num">1</div>
+        <div class="qs-icon">📅</div>
+        <div class="qs-card-title">Book Your Free Estimate</div>
+        <div class="qs-card-desc">We visit your home, assess the project, and provide a detailed honest quote — completely free and no pressure.</div>
+        <div class="qs-btns">
+          <a href="tel:4257258134" class="btn-green-sm">☎ Call (425) 725-8134</a>
+          <a href="#finalcta" class="btn-gold-sm">📋 Request Online</a>
+        </div>
+      </div>
+      <div class="qs-card">
+        <div class="qs-num">2</div>
+        <div class="qs-icon">🎨</div>
+        <div class="qs-card-title accent">Choose Your Colors</div>
+        <div class="qs-card-desc">Our experts help you find the perfect palette that matches your vision, space, and lifestyle — free color consultation included.</div>
+        <div class="qs-commands">
+          <div class="qs-cmd-label">Popular brands:</div>
+          <div class="qs-chips">
+            <span class="qs-chip">Sherwin-Williams</span>
+            <span class="qs-chip">Benjamin Moore</span>
+            <span class="qs-chip">Custom Match</span>
+          </div>
+        </div>
+      </div>
+      <div class="qs-card">
+        <div class="qs-num">3</div>
+        <div class="qs-icon">🏡</div>
+        <div class="qs-card-title">We Paint, You Relax</div>
+        <div class="qs-card-desc">We prep, protect, and paint with precision. Final walkthrough — we don't leave until you're completely satisfied.</div>
+        <div class="qs-commands">
+          <div class="qs-cmd-label">Services available:</div>
+          <div class="qs-chips">
+            <span class="qs-chip">Exterior</span>
+            <span class="qs-chip">Interior</span>
+            <span class="qs-chip">Cabinets</span>
+            <span class="qs-chip">Decks</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── ABOUT ── -->
+<section id="about">
+  <div class="section-inner">
+    <div class="about-grid">
+      <div class="reveal">
+        <div class="about-img-wrapper">
+          <img src="https://cdn.prod.website-files.com/67cbada18d07464c05c5ebd4/68ad2a985d8bb816f4c9b958_GOP%20-%20Main%20Logo%20Transparent%20(1).png" alt="Golden Oak Painting">
+        </div>
+      </div>
+      <div class="reveal" style="transition-delay:0.15s">
+        <h2 class="about-title">About <span>Golden Oak Painting</span></h2>
+        <p class="about-desc">Golden Oak Painting is a trusted local painting company serving Snohomish and King County, Washington. Built on quality craftsmanship and honest communication, our crew delivers stunning results for interior, exterior, and specialty painting projects — every time.</p>
+        <div class="about-points">
+          <div class="about-point">
+            <div class="apoint-icon">⚡</div>
+            <div>
+              <div class="apoint-title">Free Estimates</div>
+              <div class="apoint-desc">No-pressure quotes with detailed scope and pricing — we come to you</div>
+            </div>
+          </div>
+          <div class="about-point">
+            <div class="apoint-icon">🛡</div>
+            <div>
+              <div class="apoint-title">3-Year Workmanship Warranty</div>
+              <div class="apoint-desc">We stand behind every job with a full guarantee on our work</div>
+            </div>
+          </div>
+          <div class="about-point">
+            <div class="apoint-icon">📍</div>
+            <div>
+              <div class="apoint-title">All of Snohomish & King County</div>
+              <div class="apoint-desc">Bothell, Kirkland, Seattle, Edmonds, Everett, and surrounding areas</div>
+            </div>
+          </div>
+          <div class="about-point">
+            <div class="apoint-icon">⭐</div>
+            <div>
+              <div class="apoint-title">50+ Five-Star Reviews</div>
+              <div class="apoint-desc">Real reviews from real Washington homeowners — see them below</div>
+            </div>
+          </div>
+        </div>
+        <a href="#finalcta" class="btn-docs">Get Your Free Estimate →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── SERVICES ── -->
+<section id="services">
+  <div class="section-inner">
+    <div class="reveal" style="text-align:center">
+      <h2 class="section-title">Our <span>Services</span></h2>
+      <p class="section-sub">Everything your home needs — from a single room refresh to a complete exterior transformation.</p>
+    </div>
+    <div class="services-grid reveal" style="transition-delay:0.1s">
+      <div class="svc-card">
+        <div class="svc-icon">🏠</div>
+        <div class="svc-title">Exterior Painting</div>
+        <div class="svc-desc">Boost curb appeal and protect your home with durable, weather-resistant premium paint.</div>
+      </div>
+      <div class="svc-card">
+        <div class="svc-icon">🖼</div>
+        <div class="svc-title">Interior Painting</div>
+        <div class="svc-desc">Smooth, flawless finishes for every room. Meticulous prep makes every coat perfect.</div>
+      </div>
+      <div class="svc-card">
+        <div class="svc-icon">🪵</div>
+        <div class="svc-title">Cabinet Refinishing</div>
+        <div class="svc-desc">Kitchen transformation without the remodel cost. Expert prep, showroom-quality finish.</div>
+      </div>
+      <div class="svc-card">
+        <div class="svc-icon">🌿</div>
+        <div class="svc-title">Deck Refinishing</div>
+        <div class="svc-desc">Restore and protect your deck through every Pacific Northwest season.</div>
+      </div>
+      <div class="svc-card">
+        <div class="svc-icon">🔧</div>
+        <div class="svc-title">Drywall Repair</div>
+        <div class="svc-desc">Seamless patches for cracks and holes — so smooth you'll never know they were there.</div>
+      </div>
+      <div class="svc-card">
+        <div class="svc-icon">✨</div>
+        <div class="svc-title">Popcorn Ceiling Removal</div>
+        <div class="svc-desc">Smooth out dated ceilings for a clean, modern feel without the hassle.</div>
+      </div>
+      <div class="svc-card">
+        <div class="svc-icon">🎨</div>
+        <div class="svc-title">Color Consultation</div>
+        <div class="svc-desc">Expert guidance on the perfect palette for your home's style and lighting.</div>
+      </div>
+      <div class="svc-card">
+        <div class="svc-icon">📋</div>
+        <div class="svc-title">Free Estimates</div>
+        <div class="svc-desc">Detailed, honest quotes with no pressure and no hidden fees — ever.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── COMPARISON ── -->
+<section id="compare">
+  <div class="section-inner">
+    <div class="reveal" style="text-align:center">
+      <h2 class="section-title">Compare with <span>Competitors</span></h2>
+      <p class="section-sub">See how Golden Oak stacks up against other painters in the area.</p>
+    </div>
+    <div class="reveal" style="transition-delay:0.1s;overflow-x:auto">
+      <table class="compare-table">
+        <thead>
+          <tr>
+            <th style="text-align:left;padding-left:1.5rem">Feature</th>
+            <th class="col-us-head">
+              <div class="compare-logo">
+                <img src="https://cdn.prod.website-files.com/67cbada18d07464c05c5ebd4/68fc0da2511a6544e79d4cd9_LOGO.png" alt="GOP" class="compare-logo-img" onerror="this.outerHTML='🏅'">
+                <span class="compare-name ours">Golden Oak</span>
+              </div>
+            </th>
+            <th>
+              <div class="compare-logo">
+                <div class="compare-logo-img" style="display:flex;align-items:center;justify-content:center;font-size:1.2rem">🏠</div>
+                <span class="compare-name">Budget Pro</span>
+              </div>
+            </th>
+            <th>
+              <div class="compare-logo">
+                <div class="compare-logo-img" style="display:flex;align-items:center;justify-content:center;font-size:1.2rem">🪣</div>
+                <span class="compare-name">QuickPaint</span>
+              </div>
+            </th>
+            <th>
+              <div class="compare-logo">
+                <div class="compare-logo-img" style="display:flex;align-items:center;justify-content:center;font-size:1.2rem">🔨</div>
+                <span class="compare-name">HandyGuy</span>
+              </div>
+            </th>
+            <th>
+              <div class="compare-logo">
+                <div class="compare-logo-img" style="display:flex;align-items:center;justify-content:center;font-size:1.2rem">🏪</div>
+                <span class="compare-name">Big Box Co.</span>
+              </div>
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><span class="feat-icon">🛡</span>3-Year Warranty</td>
+            <td class="col-us-td"><div class="check-yes" style="margin:0 auto">✓</div></td>
+            <td><div class="check-no" style="margin:0 auto">✕</div></td>
+            <td><div class="check-no" style="margin:0 auto">✕</div></td>
+            <td><div class="check-no" style="margin:0 auto">✕</div></td>
+            <td><div class="check-yes" style="margin:0 auto">✓</div></td>
+          </tr>
+          <tr>
+            <td><span class="feat-icon">📋</span>Free Estimate</td>
+            <td class="col-us-td"><div class="check-yes" style="margin:0 auto">✓</div></td>
+            <td><div class="check-yes" style="margin:0 auto">✓</div></td>
+            <td><div class="check-no" style="margin:0 auto">✕</div></td>
+            <td><div class="check-yes" style="margin:0 auto">✓</div></td>
+            <td><div class="check-no" style="margin:0 auto">✕</div></td>
+          </tr>
+          <tr>
+            <td><span class="feat-icon">🎨</span>Color Consultation</td>
+            <td class="col-us-td"><div class="check-yes" style="margin:0 auto">✓</div></td>
+            <td><div class="check-no" style="margin:0 auto">✕</div></td>
+            <td><div class="check-no" style="margin:0 auto">✕</div></td>
+            <td><div class="check-no" style="margin:0 auto">✕</div></td>
+            <td><div class="check-yes" style="margin:0 auto">✓</div></td>
+          </tr>
+          <tr>
+            <td><span class="feat-icon">🪵</span>Cabinet Refinishing</td>
+            <td class="col-us-td"><div class="check-yes" style="margin:0 auto">✓</div></td>
+            <td><div class="check-no" style="margin:0 auto">✕</div></td>
+            <td><div class="check-no" style="margin:0 auto">✕</div></td>
+            <td><div class="check-no" style="margin:0 auto">✕</div></td>
+            <td><div class="check-no" style="margin:0 auto">✕</div></td>
+          </tr>
+          <tr>
+            <td><span class="feat-icon">⭐</span>50+ 5-Star Reviews</td>
+            <td class="col-us-td"><div class="check-yes" style="margin:0 auto">✓</div></td>
+            <td><div class="check-no" style="margin:0 auto">✕</div></td>
+            <td><div class="check-yes" style="margin:0 auto">✓</div></td>
+            <td><div class="check-no" style="margin:0 auto">✕</div></td>
+            <td><div class="check-yes" style="margin:0 auto">✓</div></td>
+          </tr>
+          <tr>
+            <td><span class="feat-icon">🔧</span>Drywall Repair</td>
+            <td class="col-us-last"><div class="check-yes" style="margin:0 auto">✓</div></td>
+            <td><div class="check-no" style="margin:0 auto">✕</div></td>
+            <td><div class="check-no" style="margin:0 auto">✕</div></td>
+            <td><div class="check-yes" style="margin:0 auto">✓</div></td>
+            <td><div class="check-no" style="margin:0 auto">✕</div></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="compare-cta reveal" style="transition-delay:0.2s">
+      <p>Ready to experience the difference?</p>
+      <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap">
+        <a href="tel:4257258134" class="btn-primary">☎ Call Now</a>
+        <a href="#finalcta" class="btn-ghost">Get Free Estimate</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── TESTIMONIALS ── -->
+<section id="testimonials">
+  <div class="section-inner">
+    <div class="reveal" style="text-align:center">
+      <h2 class="section-title">What Homeowners <span>Say</span></h2>
+      <p class="section-sub">Real reviews from real Washington homeowners. See why our work speaks for itself.</p>
+    </div>
+    <div class="testi-grid reveal" style="transition-delay:0.1s">
+      <div class="testi-video-wrap"><iframe src="https://www.youtube.com/embed/4YASAHGElL4" title="Review" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+      <div class="testi-video-wrap"><iframe src="https://www.youtube.com/embed/6cuHCz14meA" title="Review" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+      <div class="testi-video-wrap"><iframe src="https://www.youtube.com/embed/GRa_gqt5Q9k" title="Review" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+      <div class="testi-video-wrap"><iframe src="https://www.youtube.com/embed/RMLLyedawd0" title="Review" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+      <div class="testi-video-wrap"><iframe src="https://www.youtube.com/embed/lS3eHMWQxOo" title="Review" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+      <div class="testi-video-wrap"><iframe src="https://www.youtube.com/embed/3eh6YgVMYfk" title="Review" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+      <div class="testi-video-wrap"><iframe src="https://www.youtube.com/embed/msYxgIUf45Q" title="Review" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+      <div class="testi-video-wrap"><iframe src="https://www.youtube.com/embed/BvznNlMkzYE" title="Review" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+      <div class="testi-video-wrap"><iframe src="https://www.youtube.com/embed/sZ3EEVB87dM" title="Review" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+      <div class="testi-video-wrap"><iframe src="https://www.youtube.com/embed/830TGiuDWOM" title="Review" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+    </div>
+  </div>
+</section>
+
+<!-- ── FAQ ── -->
+<section id="faq">
+  <div class="section-inner">
+    <div class="reveal" style="text-align:center">
+      <h2 class="section-title">Frequently Asked <span>Questions</span></h2>
+      <p class="section-sub">Get answers to common questions about Golden Oak Painting and our services.</p>
+    </div>
+    <div class="faq-list reveal" style="transition-delay:0.1s">
+      <div class="faq-item open">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          <span class="faq-q-icon">❓</span>
+          How much does a free estimate cost?
+          <span class="chevron">▾</span>
+        </div>
+        <div class="faq-a">
+          <div class="faq-a-inner">Nothing — our estimates are completely free with no obligation. We visit your home, assess the project, and provide a detailed written quote. Call (425) 725-8134 to schedule.</div>
+        </div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          <span class="faq-q-icon">❓</span>
+          What areas do you serve?
+          <span class="chevron">▾</span>
+        </div>
+        <div class="faq-a">
+          <div class="faq-a-inner">We serve all of Snohomish and King County including Bothell, Kirkland, Bellevue, Seattle, Edmonds, Lynnwood, Everett, Redmond, and surrounding communities.</div>
+        </div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          <span class="faq-q-icon">❓</span>
+          Do you offer a warranty?
+          <span class="chevron">▾</span>
+        </div>
+        <div class="faq-a">
+          <div class="faq-a-inner">Yes! We back every job with a 3-year workmanship warranty. If something isn't right within 3 years of completion, we'll fix it — no questions asked.</div>
+        </div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          <span class="faq-q-icon">❓</span>
+          What paint brands do you use?
+          <span class="chevron">▾</span>
+        </div>
+        <div class="faq-a">
+          <div class="faq-a-inner">We use premium brands including Sherwin-Williams, Benjamin Moore, and Behr. During your consultation, we'll recommend the best product for your specific project and budget.</div>
+        </div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          <span class="faq-q-icon">❓</span>
+          How long does exterior painting take?
+          <span class="chevron">▾</span>
+        </div>
+        <div class="faq-a">
+          <div class="faq-a-inner">Most exterior projects take 2–5 days depending on home size and complexity. We'll give you a firm timeline during your free estimate so you can plan accordingly.</div>
+        </div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          <span class="faq-q-icon">❓</span>
+          Are you licensed and insured?
+          <span class="chevron">▾</span>
+        </div>
+        <div class="faq-a">
+          <div class="faq-a-inner">Absolutely. Golden Oak Painting is fully licensed and insured in the State of Washington. You're fully protected every step of the way.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── FINAL CTA ── -->
+<section id="finalcta">
+  <div class="finalcta-inner reveal">
+    <div class="finalcta-logo">
+      <img src="https://cdn.prod.website-files.com/67cbada18d07464c05c5ebd4/68ad2a985d8bb816f4c9b958_GOP%20-%20Main%20Logo%20Transparent%20(1).png" alt="Golden Oak Painting">
+    </div>
+    <h2 class="finalcta-title">Ready to Transform Your <span>Home?</span></h2>
+    <p class="finalcta-sub">Join 50+ happy Washington homeowners who trust Golden Oak Painting for beautiful, lasting results. Get your free estimate today — no pressure, no obligation.</p>
+    <div class="finalcta-btns">
+      <a href="tel:4257258134" class="btn-white">
+        <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.44 2 2 0 0 1 3.58 1h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 8.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        Call Now →
+      </a>
+      <a href="mailto:info@goldenoakpainting.com" class="btn-gold-lg">📋 Request Free Estimate →</a>
+    </div>
+    <div class="finalcta-stats">
+      <div class="fcstat"><span class="fcstat-icon">⭐</span><span class="fcstat-num">50+</span>&nbsp;5-Star Reviews</div>
+      <div class="fcstat"><span class="fcstat-icon">🛡</span><span class="fcstat-num">3yr</span>&nbsp;Warranty</div>
+      <div class="fcstat"><span class="fcstat-icon">📍</span><span class="fcstat-num">WA</span>&nbsp;Licensed & Insured</div>
+    </div>
+  </div>
+</section>
+
+<!-- ── FOOTER ── */-->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div>
+        <div class="footer-brand">
+          <img src="https://cdn.prod.website-files.com/67cbada18d07464c05c5ebd4/68ad2a985d8bb816f4c9b958_GOP%20-%20Main%20Logo%20Transparent%20(1).png" alt="Golden Oak Painting">
+          <span class="footer-brand-name">Golden Oak Painting</span>
+        </div>
+        <p class="footer-brand-desc">Professional painting services across Snohomish and King County, WA. Licensed, insured, and backed by a 3-year warranty.</p>
+        <div class="footer-socials">
+          <a href="tel:4257258134" class="fsoc">☎</a>
+          <a href="#testimonials" class="fsoc">▶</a>
+          <a href="#finalcta" class="fsoc">★</a>
+        </div>
+      </div>
+      <div>
+        <div class="footer-col-title">Services</div>
+        <ul class="footer-links">
+          <li><a href="#services">Exterior Painting</a></li>
+          <li><a href="#services">Interior Painting</a></li>
+          <li><a href="#services">Cabinet Refinishing</a></li>
+          <li><a href="#services">Deck Refinishing</a></li>
+          <li><a href="#services">Drywall Repair</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-col-title">Company</div>
+        <ul class="footer-links">
+          <li><a href="#about">About Us</a></li>
+          <li><a href="#testimonials">Reviews</a></li>
+          <li><a href="#faq">FAQ</a></li>
+          <li><a href="#finalcta">Contact</a></li>
+          <li><a href="#compare">Why Choose Us</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-col-title">Contact</div>
+        <ul class="footer-links">
+          <li><a href="tel:4257258134">(425) 725-8134</a></li>
+          <li><a href="#">Snohomish County</a></li>
+          <li><a href="#">King County</a></li>
+          <li><a href="#">Free Estimates</a></li>
+          <li><a href="#">3-Year Warranty</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-copy">© 2026 Golden Oak Painting. All rights reserved.</div>
+      <div class="footer-legal">
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms of Service</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+window.addEventListener('scroll', () => {
+  const p = window.scrollY / (document.body.scrollHeight - window.innerHeight) * 100;
+  document.getElementById('progressBar').style.width = p + '%';
+  document.getElementById('scrollTop').classList.toggle('visible', window.scrollY > 400);
+  document.querySelectorAll('.nav-links a').forEach(a => {
+    a.classList.remove('active');
+    const t = document.querySelector(a.getAttribute('href'));
+    if (t && window.scrollY >= t.offsetTop - 120 && window.scrollY < t.offsetTop + t.offsetHeight - 120) a.classList.add('active');
+  });
+});
+const io = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      const siblings = [...e.target.parentElement.querySelectorAll('.reveal')];
+      setTimeout(() => e.target.classList.add('in'), Math.min(siblings.indexOf(e.target) * 90, 300));
+      io.unobserve(e.target);
+    }
+  });
+}, {threshold:0.08});
+document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+function toggleFaq(el) {
+  const item = el.parentElement;
+  const wasOpen = item.classList.contains('open');
+  document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+  if (!wasOpen) item.classList.add('open');
+}
+</script>
+</body>
+</html>
