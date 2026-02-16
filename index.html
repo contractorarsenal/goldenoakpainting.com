@@ -72,11 +72,18 @@ nav{position:fixed;top:3px;left:0;right:0;z-index:100;background:rgba(255,255,25
 .nav-btn-primary:hover{background:var(--gold);color:#fff;transform:translateY(-1px)}
 
 /* ── FLOATING SOCIAL ── */
-.social-float{position:fixed;left:0;top:50%;transform:translateY(-50%);z-index:50;display:flex;flex-direction:column;gap:0}
-.sf-btn{width:44px;height:44px;display:flex;align-items:center;justify-content:center;background:#fff;border:1px solid var(--border2);color:var(--text3);text-decoration:none;font-size:1rem;transition:all 0.2s}
-.sf-btn:first-child{border-radius:0 6px 0 0}
-.sf-btn:last-child{border-radius:0 0 6px 0}
-.sf-btn:hover{background:var(--green-dim);color:var(--green);border-color:var(--green)}
+.social-float{position:fixed;left:0;top:50%;transform:translateY(-50%);z-index:50;display:flex;flex-direction:column;gap:0;filter:drop-shadow(2px 2px 8px rgba(30,122,62,0.15))}
+.sf-btn{width:46px;height:46px;display:flex;align-items:center;justify-content:center;background:#fff;border:1px solid var(--border2);border-left:none;color:var(--text3);text-decoration:none;font-size:1rem;transition:all 0.25s;position:relative}
+.sf-btn:first-child{border-radius:0 8px 0 0}
+.sf-btn:last-child{border-radius:0 0 8px 0}
+.sf-btn svg{width:20px;height:20px;transition:transform 0.2s}
+.sf-btn:hover svg{transform:scale(1.15)}
+.sf-btn.sf-google:hover{background:#fff7f0;border-color:#EA4335}
+.sf-btn.sf-insta:hover{background:#fff0f8;border-color:#E1306C}
+.sf-btn.sf-fb:hover{background:#f0f4ff;border-color:#1877F2}
+/* Tooltip labels */
+.sf-btn::after{content:attr(data-label);position:absolute;left:calc(100% + 8px);background:var(--text);color:#fff;font-size:0.7rem;font-weight:600;padding:0.25rem 0.6rem;border-radius:5px;white-space:nowrap;opacity:0;pointer-events:none;transition:opacity 0.2s;letter-spacing:0.04em}
+.sf-btn:hover::after{opacity:1}
 
 /* ── SCROLL TOP ── */
 .scroll-top{position:fixed;right:1.5rem;bottom:1.5rem;z-index:50;width:40px;height:40px;background:#fff;border:1.5px solid var(--border2);border-radius:8px;color:var(--text2);display:flex;align-items:center;justify-content:center;cursor:pointer;text-decoration:none;font-size:1.1rem;transition:all 0.2s;opacity:0;box-shadow:var(--shadow)}
@@ -316,9 +323,38 @@ footer{background:var(--bg2);border-top:1.5px solid var(--border);padding:4rem 2
 
 <!-- FLOATING SOCIAL -->
 <div class="social-float">
-  <a href="#" class="sf-btn">𝕏</a>
-  <a href="tel:4257258134" class="sf-btn">✆</a>
-  <a href="#" class="sf-btn">★</a>
+  <!-- Google Reviews -->
+  <a href="https://share.google/kBf1gE6go8QIPGcQb" target="_blank" rel="noopener" class="sf-btn sf-google" data-label="Google Reviews">
+    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M21.805 10.023H12.18v3.954h5.594c-.242 1.242-.975 2.297-2.082 3.004l3.364 2.614c1.962-1.811 3.094-4.476 3.094-7.657 0-.621-.056-1.22-.155-1.797-.041-.237-.19-.118-.19-.118z" fill="#4285F4"/>
+      <path d="M12.18 22c2.81 0 5.168-.932 6.89-2.527l-3.364-2.614c-.932.625-2.125.994-3.526.994-2.713 0-5.01-1.832-5.832-4.294L2.96 16.03C4.68 19.479 8.168 22 12.18 22z" fill="#34A853"/>
+      <path d="M6.348 13.559a6.06 6.06 0 0 1-.317-1.94c0-.673.116-1.328.317-1.94L2.96 7.11A9.946 9.946 0 0 0 2 11.619c0 1.609.385 3.13 1.064 4.478l3.284-2.538z" fill="#FBBC05"/>
+      <path d="M12.18 5.326c1.527 0 2.895.525 3.974 1.556l2.981-2.981C17.34 2.24 14.99 1.238 12.18 1.238c-4.012 0-7.5 2.52-9.22 5.872l3.388 2.63c.822-2.462 3.119-4.414 5.832-4.414z" fill="#EA4335"/>
+    </svg>
+  </a>
+  <!-- Instagram -->
+  <a href="https://www.instagram.com/goldenoakpainting/reels/" target="_blank" rel="noopener" class="sf-btn sf-insta" data-label="Instagram">
+    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <linearGradient id="ig-grad" x1="0%" y1="100%" x2="100%" y2="0%">
+          <stop offset="0%" stop-color="#FFDC80"/>
+          <stop offset="30%" stop-color="#F77737"/>
+          <stop offset="60%" stop-color="#C13584"/>
+          <stop offset="100%" stop-color="#515BD4"/>
+        </linearGradient>
+      </defs>
+      <rect x="2" y="2" width="20" height="20" rx="5.5" fill="url(#ig-grad)"/>
+      <circle cx="12" cy="12" r="4.2" stroke="#fff" stroke-width="1.8" fill="none"/>
+      <circle cx="17.2" cy="6.8" r="1.1" fill="#fff"/>
+    </svg>
+  </a>
+  <!-- Facebook -->
+  <a href="https://www.facebook.com/p/Golden-Oak-Painting-61563279777927/" target="_blank" rel="noopener" class="sf-btn sf-fb" data-label="Facebook">
+    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <rect x="2" y="2" width="20" height="20" rx="5" fill="#1877F2"/>
+      <path d="M13.2 20v-7.3h2.4l.36-2.8H13.2V8.2c0-.8.22-1.35 1.38-1.35h1.47V4.35C15.8 4.24 14.86 4.13 13.9 4.13c-2.13 0-3.59 1.3-3.59 3.69v2.06H8v2.8h2.31V20h2.89z" fill="#fff"/>
+    </svg>
+  </a>
 </div>
 
 <!-- SCROLL TOP -->
@@ -817,9 +853,15 @@ Showroom finish, no full remodel 💰<br>
         </div>
         <p class="footer-brand-desc">Professional painting services across Snohomish and King County, WA. Licensed, insured, and backed by a 3-year warranty.</p>
         <div class="footer-socials">
-          <a href="tel:4257258134" class="fsoc">☎</a>
-          <a href="#testimonials" class="fsoc">▶</a>
-          <a href="#finalcta" class="fsoc">★</a>
+          <a href="https://share.google/kBf1gE6go8QIPGcQb" target="_blank" rel="noopener" class="fsoc" title="Google Reviews">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none"><path d="M21.805 10.023H12.18v3.954h5.594c-.242 1.242-.975 2.297-2.082 3.004l3.364 2.614c1.962-1.811 3.094-4.476 3.094-7.657 0-.621-.056-1.22-.155-1.797z" fill="#4285F4"/><path d="M12.18 22c2.81 0 5.168-.932 6.89-2.527l-3.364-2.614c-.932.625-2.125.994-3.526.994-2.713 0-5.01-1.832-5.832-4.294L2.96 16.03C4.68 19.479 8.168 22 12.18 22z" fill="#34A853"/><path d="M6.348 13.559a6.06 6.06 0 0 1-.317-1.94c0-.673.116-1.328.317-1.94L2.96 7.11A9.946 9.946 0 0 0 2 11.619c0 1.609.385 3.13 1.064 4.478l3.284-2.538z" fill="#FBBC05"/><path d="M12.18 5.326c1.527 0 2.895.525 3.974 1.556l2.981-2.981C17.34 2.24 14.99 1.238 12.18 1.238c-4.012 0-7.5 2.52-9.22 5.872l3.388 2.63c.822-2.462 3.119-4.414 5.832-4.414z" fill="#EA4335"/></svg>
+          </a>
+          <a href="https://www.instagram.com/goldenoakpainting/reels/" target="_blank" rel="noopener" class="fsoc" title="Instagram">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none"><defs><linearGradient id="ig2" x1="0%" y1="100%" x2="100%" y2="0%"><stop offset="0%" stop-color="#FFDC80"/><stop offset="30%" stop-color="#F77737"/><stop offset="60%" stop-color="#C13584"/><stop offset="100%" stop-color="#515BD4"/></linearGradient></defs><rect x="2" y="2" width="20" height="20" rx="5.5" fill="url(#ig2)"/><circle cx="12" cy="12" r="4.2" stroke="#fff" stroke-width="1.8" fill="none"/><circle cx="17.2" cy="6.8" r="1.1" fill="#fff"/></svg>
+          </a>
+          <a href="https://www.facebook.com/p/Golden-Oak-Painting-61563279777927/" target="_blank" rel="noopener" class="fsoc" title="Facebook">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none"><rect x="2" y="2" width="20" height="20" rx="5" fill="#1877F2"/><path d="M13.2 20v-7.3h2.4l.36-2.8H13.2V8.2c0-.8.22-1.35 1.38-1.35h1.47V4.35C15.8 4.24 14.86 4.13 13.9 4.13c-2.13 0-3.59 1.3-3.59 3.69v2.06H8v2.8h2.31V20h2.89z" fill="#fff"/></svg>
+          </a>
         </div>
       </div>
       <div>
