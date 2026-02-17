@@ -58,8 +58,8 @@ body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);overf
 nav{position:fixed;top:3px;left:0;right:0;z-index:100;background:rgba(255,255,255,0.95);backdrop-filter:blur(16px);border-bottom:1px solid var(--border);height:64px;display:flex;align-items:center;padding:0 2rem;box-shadow:0 1px 12px rgba(30,122,62,0.08)}
 .nav-inner{max-width:1200px;margin:0 auto;width:100%;display:flex;align-items:center;gap:2rem}
 .nav-logo{display:flex;align-items:center;gap:0.6rem;text-decoration:none;flex-shrink:0}
-.nav-logo img{height:38px;width:auto}
-.nav-logo-text{font-size:1.05rem;font-weight:800;color:var(--text)}
+.nav-logo img{height:52px;width:auto}
+.nav-logo-text{display:none}
 .nav-links{display:flex;gap:0;list-style:none;margin-left:1rem}
 .nav-links a{padding:0.5rem 1rem;font-size:0.87rem;color:var(--text3);text-decoration:none;border-radius:6px;transition:color 0.2s;position:relative;font-weight:500}
 .nav-links a.active{color:var(--green)}
@@ -101,23 +101,11 @@ section{padding:5rem 2rem}
 /* ── HERO ── */
 #hero{
   padding-top:7rem;padding-bottom:3rem;
-  background:
-    linear-gradient(to bottom, rgba(26,46,28,0.7) 0%, rgba(26,46,28,0.6) 100%),
-    url('hero-background.png') center/cover no-repeat;
+  background: url('hero-background.png') center/cover no-repeat;
   position:relative;overflow:hidden;
 }
-#hero::before{
-  content:'';position:absolute;top:-200px;right:-200px;
-  width:700px;height:700px;border-radius:50%;
-  background:radial-gradient(circle,rgba(201,168,76,0.12) 0%,transparent 70%);
-  pointer-events:none;
-}
-#hero::after{
-  content:'';position:absolute;bottom:-150px;left:-150px;
-  width:500px;height:500px;border-radius:50%;
-  background:radial-gradient(circle,rgba(30,122,62,0.1) 0%,transparent 70%);
-  pointer-events:none;
-}
+#hero::before{display:none}
+#hero::after{display:none}
 .hero-inner{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 1.05fr;gap:4rem;align-items:center;position:relative;z-index:1}
 .hero-content{max-width:900px;margin:0 auto}
 .hero-mascot{display:none}
@@ -354,8 +342,8 @@ footer{background:var(--bg2);border-top:1.5px solid var(--border);padding:4rem 2
   .nav-right{display:none}
   .hamburger{display:flex}
   .mobile-menu{top:60px}
-  .nav-logo-text{font-size:0.9rem}
-  .nav-logo img{height:32px}
+  .nav-logo-text{display:none}
+  .nav-logo img{height:44px}
 
   /* Floating social — hide on mobile */
   .social-float{display:none}
