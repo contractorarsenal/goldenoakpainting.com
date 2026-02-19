@@ -10,40 +10,15 @@
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
 :root{
-  /* Whites & creams */
-  --bg:       #ffffff;
-  --bg2:      #f7f9f5;
-  --bg3:      #eef4ea;
-  --bg4:      #e4eddf;
-  --bg5:      #d6e9cc;
-
-  /* Borders */
-  --border:   rgba(34,120,50,0.14);
-  --border2:  rgba(34,120,50,0.28);
-
-  /* Gold */
-  --gold:     #a58126;
-  --gold2:    #c9a84c;
-  --gold3:    #f0d080;
-  --gold-dim: rgba(165,129,38,0.12);
-  --gold-bg:  rgba(201,168,76,0.1);
-
-  /* Green */
-  --green:    #1e7a3e;
-  --green2:   #27a351;
-  --green3:   #43c26d;
-  --green-dim:rgba(30,122,62,0.1);
-  --green-bg: rgba(30,122,62,0.06);
-
-  /* Text */
-  --text:     #1a2e1c;
-  --text2:    #3d5c42;
-  --text3:    #6e8f72;
-  --text4:    #9db59f;
-
-  --r:8px;
-  --r2:12px;
-  --shadow: 0 2px 16px rgba(30,122,62,0.1);
+  --bg:#ffffff;--bg2:#f7f9f5;--bg3:#eef4ea;--bg4:#e4eddf;
+  --border:rgba(34,120,50,0.14);--border2:rgba(34,120,50,0.28);
+  --gold:#a58126;--gold2:#c9a84c;--gold3:#f0d080;
+  --gold-dim:rgba(165,129,38,0.12);--gold-bg:rgba(201,168,76,0.1);
+  --green:#1e7a3e;--green2:#27a351;--green3:#43c26d;
+  --green-dim:rgba(30,122,62,0.1);--green-bg:rgba(30,122,62,0.06);
+  --text:#1a2e1c;--text2:#3d5c42;--text3:#6e8f72;--text4:#9db59f;
+  --r:8px;--r2:12px;
+  --shadow:0 2px 16px rgba(30,122,62,0.1);
   --shadow2:0 8px 40px rgba(30,122,62,0.14);
 }
 body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);overflow-x:hidden;line-height:1.6}
@@ -51,29 +26,28 @@ body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);overf
 ::-webkit-scrollbar-track{background:var(--bg3)}
 ::-webkit-scrollbar-thumb{background:var(--gold);border-radius:4px}
 
-/* ── PROGRESS BAR ── */
+/* PROGRESS BAR */
 .progress-bar{position:fixed;top:0;left:0;height:3px;background:linear-gradient(90deg,var(--green),var(--gold),var(--green2));z-index:200;width:0;transition:width 0.1s}
 
-/* ── NAV ── */
+/* NAV */
 nav{position:fixed;top:3px;left:0;right:0;z-index:100;background:rgba(255,255,255,0.95);backdrop-filter:blur(16px);border-bottom:1px solid var(--border);height:64px;display:flex;align-items:center;padding:0 2rem;box-shadow:0 1px 12px rgba(30,122,62,0.08)}
-.nav-inner{max-width:1200px;margin:0 auto;width:100%;display:flex;align-items:center;gap:2rem}
+.nav-inner{max-width:1200px;margin:0 auto;width:100%;display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:1rem}
 .nav-logo{display:flex;align-items:center;gap:0.6rem;text-decoration:none;flex-shrink:0}
 .nav-logo img{height:52px;width:auto}
-.nav-logo-text{display:none}
-.nav-links{display:flex;gap:0;list-style:none;margin-left:1rem}
+.nav-links{display:flex;gap:0;list-style:none;justify-content:flex-start}
 .nav-links a{padding:0.5rem 1rem;font-size:0.87rem;color:var(--text3);text-decoration:none;border-radius:6px;transition:color 0.2s;position:relative;font-weight:500}
 .nav-links a.active{color:var(--green)}
 .nav-links a.active::after{content:'';position:absolute;bottom:-1px;left:1rem;right:1rem;height:2px;background:var(--gold);border-radius:2px}
 .nav-links a:hover{color:var(--green)}
-.nav-right{margin-left:auto;display:flex;gap:0.6rem;align-items:center}
+.nav-right{display:flex;gap:0.6rem;align-items:center;justify-content:flex-end}
 .nav-btn{padding:0.45rem 1rem;border-radius:20px;font-size:0.82rem;font-weight:600;text-decoration:none;border:1.5px solid var(--border2);color:var(--text2);background:transparent;cursor:pointer;display:flex;align-items:center;gap:0.4rem;transition:all 0.2s}
 .nav-btn:hover{border-color:var(--gold);color:var(--gold)}
 .nav-btn-primary{background:var(--green);color:#fff;border:none;padding:0.5rem 1.15rem;border-radius:20px;font-size:0.82rem;font-weight:700;text-decoration:none;display:flex;align-items:center;gap:0.4rem;transition:all 0.2s}
 .nav-btn-primary:hover{background:var(--gold);color:#fff;transform:translateY(-1px)}
 
-/* ── FLOATING SOCIAL ── */
-.social-float{position:fixed;left:0;top:50%;transform:translateY(-50%);z-index:50;display:flex;flex-direction:column;gap:0;filter:drop-shadow(2px 2px 8px rgba(30,122,62,0.15))}
-.sf-btn{width:46px;height:46px;display:flex;align-items:center;justify-content:center;background:#fff;border:1px solid var(--border2);border-left:none;color:var(--text3);text-decoration:none;font-size:1rem;transition:all 0.25s;position:relative}
+/* FLOATING SOCIAL */
+.social-float{position:fixed;left:0;top:50%;transform:translateY(-50%);z-index:50;display:flex;flex-direction:column;filter:drop-shadow(2px 2px 8px rgba(30,122,62,0.15))}
+.sf-btn{width:46px;height:46px;display:flex;align-items:center;justify-content:center;background:#fff;border:1px solid var(--border2);border-left:none;color:var(--text3);text-decoration:none;transition:all 0.25s;position:relative}
 .sf-btn:first-child{border-radius:0 8px 0 0}
 .sf-btn:last-child{border-radius:0 0 8px 0}
 .sf-btn svg{width:20px;height:20px;transition:transform 0.2s}
@@ -81,86 +55,90 @@ nav{position:fixed;top:3px;left:0;right:0;z-index:100;background:rgba(255,255,25
 .sf-btn.sf-google:hover{background:#fff7f0;border-color:#EA4335}
 .sf-btn.sf-insta:hover{background:#fff0f8;border-color:#E1306C}
 .sf-btn.sf-fb:hover{background:#f0f4ff;border-color:#1877F2}
-/* Tooltip labels */
-.sf-btn::after{content:attr(data-label);position:absolute;left:calc(100% + 8px);background:var(--text);color:#fff;font-size:0.7rem;font-weight:600;padding:0.25rem 0.6rem;border-radius:5px;white-space:nowrap;opacity:0;pointer-events:none;transition:opacity 0.2s;letter-spacing:0.04em}
+.sf-btn::after{content:attr(data-label);position:absolute;left:calc(100% + 8px);background:var(--text);color:#fff;font-size:0.7rem;font-weight:600;padding:0.25rem 0.6rem;border-radius:5px;white-space:nowrap;opacity:0;pointer-events:none;transition:opacity 0.2s}
 .sf-btn:hover::after{opacity:1}
 
-/* ── SCROLL TOP ── */
+/* SCROLL TOP */
 .scroll-top{position:fixed;right:1.5rem;bottom:1.5rem;z-index:50;width:40px;height:40px;background:#fff;border:1.5px solid var(--border2);border-radius:8px;color:var(--text2);display:flex;align-items:center;justify-content:center;cursor:pointer;text-decoration:none;font-size:1.1rem;transition:all 0.2s;opacity:0;box-shadow:var(--shadow)}
 .scroll-top.visible{opacity:1}
 .scroll-top:hover{background:var(--green);color:#fff;border-color:var(--green)}
 
-/* ── SECTIONS ── */
+/* SECTIONS */
 section{padding:5rem 2rem}
 .section-inner{max-width:1200px;margin:0 auto}
-.section-badge{display:inline-flex;align-items:center;gap:0.5rem;background:var(--green-dim);border:1px solid var(--border2);border-radius:20px;padding:0.3rem 0.9rem;font-size:0.75rem;font-weight:600;color:var(--green);margin-bottom:1.25rem}
 .section-title{font-size:clamp(1.8rem,3vw,2.6rem);font-weight:800;color:var(--text);text-align:center;letter-spacing:-0.01em}
 .section-title span{color:var(--gold)}
 .section-sub{font-size:0.95rem;color:var(--text3);text-align:center;margin:0.6rem auto 0;max-width:560px}
 
-/* ── HERO ── */
+/* HERO */
 #hero{
-  padding-top:7rem;padding-bottom:3rem;
-  background: url('hero-background.png') center/cover no-repeat;
+  padding-top:7rem;padding-bottom:4rem;
+  background:
+    linear-gradient(160deg,rgba(4,22,9,0.62) 0%,rgba(8,38,18,0.45) 40%,rgba(6,28,14,0.38) 70%,rgba(4,22,9,0.65) 100%),
+    url('https://github.com/user-attachments/assets/9ea23acd-1f05-4c47-b330-289e70f9a752') center/cover no-repeat;
   position:relative;overflow:hidden;
 }
-#hero::before{display:none}
-#hero::after{display:none}
+#hero::before{
+  content:'';position:absolute;inset:0;pointer-events:none;
+  background:radial-gradient(ellipse at 18% 50%,rgba(201,168,76,0.15) 0%,transparent 55%);
+}
 .hero-inner{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 1.05fr;gap:4rem;align-items:center;position:relative;z-index:1}
-.hero-content{max-width:900px;margin:0 auto}
-.hero-mascot{display:none}
-.hero-mascot img{display:none}
-.hero-rating{display:none}
-.hero-rating-icons{display:none}
-.hero-rating-icon{display:none}
-.hero-rating-text{display:none}
-.hero-rating-stars{display:none}
-.hero-rating-count{display:none}
 .hero-badge{display:inline-flex;align-items:center;gap:0.5rem;background:rgba(238,244,234,0.95);border:1px solid rgba(34,120,50,0.3);border-radius:20px;padding:0.35rem 1rem;font-size:0.75rem;font-weight:600;color:var(--green);margin-bottom:1.5rem;backdrop-filter:blur(8px)}
 .hero-badge::before{content:'✦';font-size:0.7rem;color:var(--gold)}
-.hero-title{font-size:clamp(2.4rem,4.5vw,4rem);font-weight:800;line-height:1.1;color:#fff;letter-spacing:-0.025em;text-shadow:2px 4px 16px rgba(0,0,0,0.4)}
-.hero-title .accent{color:var(--gold3)}
-.hero-title .accent2{color:#fff}
-.hero-sub{margin-top:1.2rem;font-size:1rem;color:rgba(255,255,255,0.95);line-height:1.75;max-width:480px;text-shadow:1px 2px 8px rgba(0,0,0,0.3)}
+.hero-title{font-size:clamp(2.4rem,4.5vw,4rem);font-weight:800;line-height:1.15;color:#fff;letter-spacing:-0.025em;text-shadow:2px 4px 16px rgba(0,0,0,0.4)}
+
+/* TYPEWRITER */
+.tw-line{display:block;min-height:1.2em}
+.tw-text{color:var(--gold3)}
+.tw-cursor{display:inline-block;width:3px;height:0.82em;background:var(--gold3);margin-left:3px;vertical-align:middle;border-radius:2px;animation:blink 0.75s step-end infinite}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:0}}
+
+.hero-sub{margin-top:1.2rem;font-size:1rem;color:rgba(255,255,255,0.92);line-height:1.75;max-width:480px;text-shadow:1px 2px 8px rgba(0,0,0,0.3)}
 .hero-sub a{color:var(--gold3);text-decoration:none;font-weight:600}
 .hero-sub a:hover{color:#fff}
 .hero-actions{display:flex;gap:0.75rem;margin-top:2rem;flex-wrap:wrap}
-.btn-primary{padding:0.78rem 1.6rem;border-radius:8px;background:var(--green);color:#fff;font-size:0.88rem;font-weight:700;text-decoration:none;display:flex;align-items:center;gap:0.5rem;transition:all 0.25s;border:none;cursor:pointer;box-shadow:0 4px 16px rgba(30,122,62,0.35)}
+.btn-primary{padding:0.78rem 1.6rem;border-radius:8px;background:var(--green);color:#fff;font-size:0.88rem;font-weight:700;text-decoration:none;display:inline-flex;align-items:center;gap:0.5rem;transition:all 0.25s;border:none;cursor:pointer;box-shadow:0 4px 16px rgba(30,122,62,0.35)}
 .btn-primary:hover{background:var(--gold);transform:translateY(-2px);box-shadow:0 8px 24px rgba(165,129,38,0.4)}
-.btn-ghost{padding:0.78rem 1.6rem;border-radius:8px;border:1.5px solid rgba(255,255,255,0.3);color:#fff;background:rgba(255,255,255,0.1);font-size:0.88rem;font-weight:600;text-decoration:none;display:flex;align-items:center;gap:0.5rem;transition:all 0.25s;backdrop-filter:blur(8px)}
+.btn-ghost{padding:0.78rem 1.6rem;border-radius:8px;border:1.5px solid rgba(255,255,255,0.3);color:#fff;background:rgba(255,255,255,0.1);font-size:0.88rem;font-weight:600;text-decoration:none;display:inline-flex;align-items:center;gap:0.5rem;transition:all 0.25s;backdrop-filter:blur(8px)}
 .btn-ghost:hover{border-color:#fff;background:rgba(255,255,255,0.2)}
 .hero-stats{display:flex;gap:2.5rem;margin-top:2.5rem}
-.stat-item{}
 .stat-num{font-size:1.6rem;font-weight:800;color:#fff;display:flex;align-items:center;gap:0.4rem;text-shadow:1px 2px 8px rgba(0,0,0,0.3)}
 .stat-icon{color:var(--gold3);font-size:1rem}
-.stat-label{font-size:0.73rem;color:rgba(255,255,255,0.85);margin-top:0.1rem;font-weight:500;text-transform:uppercase;letter-spacing:0.04em}
+.stat-label{font-size:0.73rem;color:rgba(255,255,255,0.82);margin-top:0.1rem;font-weight:500;text-transform:uppercase;letter-spacing:0.04em}
 
-/* ── CHAT MOCKUP ── */
-.hero-chat{background:#fff;border:1.5px solid #d8dcd6;border-radius:16px;overflow:hidden;box-shadow:0 8px 32px rgba(30,122,62,0.12)}
+/* HERO ANIMATIONS */
+@keyframes fadeUp{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:translateY(0)}}
+@keyframes slideIn{from{opacity:0;transform:translateX(36px)}to{opacity:1;transform:translateX(0)}}
+.hero-badge{animation:fadeUp 0.7s ease 0.2s both}
+.hero-title{animation:fadeUp 0.7s ease 0.35s both}
+.hero-sub{animation:fadeUp 0.7s ease 0.55s both}
+.hero-actions{animation:fadeUp 0.7s ease 0.7s both}
+.hero-stats{animation:fadeUp 0.7s ease 0.85s both}
+.hero-chat{animation:slideIn 0.8s ease 0.5s both}
+
+/* CHAT */
+.hero-chat{background:#fff;border:1.5px solid #d8dcd6;border-radius:16px;overflow:hidden;box-shadow:0 8px 32px rgba(30,122,62,0.14)}
 .chat-titlebar{background:#f5f7f3;border-bottom:1px solid #e8ebe6;padding:0.85rem 1.2rem;display:flex;align-items:center;gap:0.5rem}
 .chat-dots{display:flex;gap:7px}
 .chat-dot{width:12px;height:12px;border-radius:50%}
-.chat-dot.red{background:#ff5f57}
-.chat-dot.yellow{background:#ffbd2e}
-.chat-dot.green{background:#28c840}
+.chat-dot.red{background:#ff5f57}.chat-dot.yellow{background:#ffbd2e}.chat-dot.green{background:#28c840}
 .chat-title{margin-left:0.5rem;font-size:0.8rem;color:#6e8f72;font-weight:500}
 .chat-body{padding:1.5rem;display:flex;flex-direction:column;gap:1.25rem;background:#fff}
 .chat-msg{display:flex;align-items:flex-start;gap:0.75rem}
 .chat-msg.bot{flex-direction:row-reverse;align-items:flex-end}
-.chat-avatar{width:36px;height:36px;border-radius:50%;background:#f0f4ec;border:2px solid #e4eddf;display:flex;align-items:center;justify-content:center;font-size:0.9rem;color:#6e8f72;flex-shrink:0;overflow:hidden}
+.chat-avatar{width:36px;height:36px;border-radius:50%;background:#f0f4ec;border:2px solid #e4eddf;display:flex;align-items:center;justify-content:center;font-size:0.9rem;flex-shrink:0;overflow:hidden}
 .chat-avatar img{width:100%;height:100%;object-fit:cover}
 .chat-bubble{padding:0.85rem 1.1rem;border-radius:12px;font-size:0.85rem;line-height:1.6;max-width:82%}
 .chat-bubble.user{background:#fff;border:1px solid #d8dcd6;color:var(--text);box-shadow:0 1px 3px rgba(30,122,62,0.08)}
-.chat-bubble.bot-msg{background:linear-gradient(135deg, #f5f9f2 0%, #eef4ea 100%);border:1px solid #d8dcd6;color:var(--text);font-family:'Inter',sans-serif;font-size:0.82rem;line-height:1.75;padding:1rem 1.2rem}
+.chat-bubble.bot-msg{background:linear-gradient(135deg,#f5f9f2,#eef4ea);border:1px solid #d8dcd6;color:var(--text);font-size:0.82rem;line-height:1.75;padding:1rem 1.2rem;white-space:pre-line}
 .chat-bubble.bot-msg .line-label{color:var(--gold);font-weight:700}
-.chat-bubble .token-name{color:var(--green);font-weight:800;font-size:0.88rem;display:flex;align-items:center;gap:0.4rem}
+.token-name{color:var(--green);font-weight:800;font-size:0.88rem;display:flex;align-items:center;gap:0.4rem}
 .chat-input-row{border-top:1px solid #e8ebe6;padding:0.85rem 1.2rem;display:flex;align-items:center;gap:0.75rem;background:#fafcf9}
-.chat-input{flex:1;background:#fff;border:1px solid #d8dcd6;border-radius:10px;padding:0.65rem 1rem;font-size:0.85rem;color:var(--text2);outline:none;transition:border 0.2s}
-.chat-input:focus{border-color:var(--green)}
-.chat-send{width:38px;height:38px;border-radius:50%;background:var(--green);border:none;color:#fff;display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:1rem;transition:all 0.2s;box-shadow:0 2px 8px rgba(30,122,62,0.2)}
+.chat-input{flex:1;background:#fff;border:1px solid #d8dcd6;border-radius:10px;padding:0.65rem 1rem;font-size:0.85rem;color:var(--text2);outline:none}
+.chat-send{width:38px;height:38px;border-radius:50%;background:var(--green);border:none;color:#fff;display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:1rem;transition:all 0.2s}
 .chat-send:hover{background:var(--gold);transform:scale(1.05)}
 
-/* ── QUICK START ── */
+/* QUICK START */
 #quickstart{background:var(--bg2)}
 .qs-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:3rem}
 .qs-card{background:#fff;border:1.5px solid var(--border);border-radius:var(--r2);padding:1.75rem;position:relative;transition:all 0.25s;box-shadow:var(--shadow)}
@@ -172,16 +150,15 @@ section{padding:5rem 2rem}
 .qs-card-title.accent{color:var(--gold)}
 .qs-card-desc{font-size:0.85rem;color:var(--text2);line-height:1.65;margin-bottom:1.25rem}
 .qs-btns{display:flex;flex-direction:column;gap:0.6rem}
-.btn-green-sm{padding:0.55rem 1rem;border-radius:7px;background:var(--green);color:#fff;font-size:0.8rem;font-weight:600;text-decoration:none;display:flex;align-items:center;gap:0.4rem;transition:all 0.2s;justify-content:center}
+.btn-green-sm{padding:0.55rem 1rem;border-radius:7px;background:var(--green);color:#fff;font-size:0.8rem;font-weight:600;text-decoration:none;display:flex;align-items:center;gap:0.4rem;justify-content:center;transition:all 0.2s}
 .btn-green-sm:hover{background:var(--gold)}
-.btn-gold-sm{padding:0.55rem 1rem;border-radius:7px;background:var(--gold-bg);border:1.5px solid var(--gold);color:var(--gold);font-size:0.8rem;font-weight:600;text-decoration:none;display:flex;align-items:center;gap:0.4rem;transition:all 0.2s;justify-content:center}
+.btn-gold-sm{padding:0.55rem 1rem;border-radius:7px;background:var(--gold-bg);border:1.5px solid var(--gold);color:var(--gold);font-size:0.8rem;font-weight:600;text-decoration:none;display:flex;align-items:center;gap:0.4rem;justify-content:center;transition:all 0.2s}
 .btn-gold-sm:hover{background:var(--gold);color:#fff}
-.qs-commands{margin-top:0.75rem}
-.qs-cmd-label{font-size:0.72rem;color:var(--text3);margin-bottom:0.5rem;font-weight:500}
+.qs-cmd-label{font-size:0.72rem;color:var(--text3);margin:0.75rem 0 0.5rem;font-weight:500}
 .qs-chips{display:flex;flex-wrap:wrap;gap:0.4rem}
 .qs-chip{padding:0.25rem 0.65rem;background:var(--bg3);border:1px solid var(--border2);border-radius:5px;font-size:0.72rem;font-family:monospace;color:var(--text2);font-weight:500}
 
-/* ── ABOUT ── */
+/* ABOUT */
 #about{background:#fff}
 .about-grid{display:grid;grid-template-columns:0.9fr 1.1fr;gap:5rem;align-items:center}
 .about-img-wrapper{border-radius:16px;overflow:hidden;border:2px solid var(--border);aspect-ratio:1;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,var(--bg2),var(--bg3));box-shadow:var(--shadow2)}
@@ -196,72 +173,88 @@ section{padding:5rem 2rem}
 .apoint-title{font-weight:700;color:var(--text);font-size:0.92rem}
 .apoint-desc{font-size:0.82rem;color:var(--text2)}
 .btn-docs{display:inline-flex;align-items:center;gap:0.5rem;padding:0.78rem 1.6rem;border-radius:8px;background:var(--green);color:#fff;font-size:0.88rem;font-weight:700;text-decoration:none;transition:all 0.2s;box-shadow:0 4px 16px rgba(30,122,62,0.2)}
-.btn-docs:hover{background:var(--gold);box-shadow:0 4px 16px rgba(165,129,38,0.3);transform:translateY(-1px)}
+.btn-docs:hover{background:var(--gold);transform:translateY(-1px)}
 
-/* ── SERVICES ── */
+/* SERVICES */
 #services{background:var(--bg2)}
 .services-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;margin-top:3rem}
-.svc-card{background:#fff;border:1.5px solid var(--border);border-radius:var(--r2);padding:1.5rem;transition:all 0.25s;cursor:default;box-shadow:var(--shadow)}
+.svc-card{background:#fff;border:1.5px solid var(--border);border-radius:var(--r2);padding:1.5rem;transition:all 0.25s;box-shadow:var(--shadow)}
 .svc-card:hover{border-color:var(--gold);transform:translateY(-5px);box-shadow:var(--shadow2)}
 .svc-icon{width:48px;height:48px;border-radius:10px;background:var(--green-dim);border:1px solid var(--border2);display:flex;align-items:center;justify-content:center;font-size:1.3rem;margin-bottom:1rem}
 .svc-title{font-weight:700;color:var(--text);font-size:0.95rem;margin-bottom:0.4rem}
 .svc-desc{font-size:0.8rem;color:var(--text2);line-height:1.6}
 
-/* ── COMPARISON TABLE ── */
-#compare{background:#fff}
-.compare-table{width:100%;border-collapse:collapse;margin-top:3rem;background:#fff;border-radius:var(--r2);overflow:hidden;border:1.5px solid var(--border2);box-shadow:var(--shadow)}
+/* GALLERY */
+#gallery{background:#fff}
+.gallery-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem;margin-top:3rem}
+.gallery-card{position:relative;border-radius:14px;overflow:hidden;border:1.5px solid var(--border);box-shadow:var(--shadow);cursor:pointer}
+.gallery-card img{width:100%;height:320px;object-fit:cover;display:block;transition:transform 0.5s ease}
+.gallery-card:hover img{transform:scale(1.06)}
+.gallery-label{position:absolute;bottom:0;left:0;right:0;padding:1.25rem;background:linear-gradient(to top,rgba(6,30,12,0.95) 0%,rgba(6,30,12,0.5) 65%,transparent 100%)}
+.gallery-tag{display:inline-flex;align-items:center;gap:0.35rem;background:rgba(201,168,76,0.25);border:1px solid rgba(240,208,128,0.4);border-radius:20px;padding:0.18rem 0.65rem;font-size:0.68rem;font-weight:700;color:var(--gold3);margin-bottom:0.4rem;text-transform:uppercase;letter-spacing:0.06em}
+.gallery-title{font-size:1rem;font-weight:800;color:#fff;text-shadow:1px 2px 6px rgba(0,0,0,0.4)}
+.gallery-sub{font-size:0.78rem;color:rgba(255,255,255,0.8);margin-top:0.12rem}
+.gallery-card::before{content:'';position:absolute;inset:0;border-radius:14px;border:2px solid transparent;transition:border-color 0.3s;z-index:2;pointer-events:none}
+.gallery-card:hover::before{border-color:var(--gold)}
+
+/* LIGHTBOX */
+.lightbox{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.93);z-index:999;align-items:center;justify-content:center;padding:2rem}
+.lightbox.open{display:flex}
+.lightbox img{max-width:90vw;max-height:85vh;object-fit:contain;border-radius:10px;box-shadow:0 20px 60px rgba(0,0,0,0.5)}
+.lb-close{position:absolute;top:1.5rem;right:1.5rem;width:44px;height:44px;border-radius:50%;background:rgba(255,255,255,0.15);border:1.5px solid rgba(255,255,255,0.3);color:#fff;font-size:1.3rem;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:all 0.2s;z-index:2}
+.lb-close:hover{background:var(--gold)}
+.lb-cap{position:absolute;bottom:1.5rem;color:rgba(255,255,255,0.85);font-size:0.9rem;font-weight:600;text-align:center;pointer-events:none}
+
+/* COMPARE */
+#compare{background:var(--bg2)}
+.compare-wrap{overflow-x:auto;margin-top:3rem}
+.compare-table{width:100%;border-collapse:collapse;background:#fff;border-radius:var(--r2);overflow:hidden;border:1.5px solid var(--border2);box-shadow:var(--shadow)}
 .compare-table th,.compare-table td{padding:0.9rem 1.1rem;text-align:center;border-bottom:1px solid var(--border);font-size:0.85rem}
 .compare-table th{font-weight:600;color:var(--text3);background:var(--bg2);font-size:0.78rem;letter-spacing:0.04em;text-transform:uppercase}
-.compare-table th:first-child,.compare-table td:first-child{text-align:left;color:var(--text);font-weight:500;padding-left:1.5rem}
+.compare-table th:first-child,.compare-table td:first-child{text-align:left;padding-left:1.5rem;color:var(--text);font-weight:500}
 .compare-table tr:last-child td{border-bottom:none}
 .compare-table tr:hover td{background:rgba(201,168,76,0.03)}
 .col-us-td{background:rgba(201,168,76,0.07)!important;border-left:2px solid var(--gold)!important;border-right:2px solid var(--gold)!important}
 .col-us-head{background:rgba(201,168,76,0.12)!important;border-left:2px solid var(--gold)!important;border-right:2px solid var(--gold)!important;border-top:2px solid var(--gold)!important;color:var(--gold)!important;font-weight:800!important}
 .col-us-last{background:rgba(201,168,76,0.07)!important;border-left:2px solid var(--gold)!important;border-right:2px solid var(--gold)!important;border-bottom:2px solid var(--gold)!important}
-.check-yes{width:26px;height:26px;border-radius:50%;background:var(--green-dim);border:1.5px solid var(--green2);color:var(--green);display:inline-flex;align-items:center;justify-content:center;font-size:0.75rem;font-weight:800}
-.check-no{width:26px;height:26px;border-radius:50%;background:rgba(200,200,200,0.15);border:1.5px solid #d0d0d0;color:#c0c0c0;display:inline-flex;align-items:center;justify-content:center;font-size:0.7rem}
-.compare-logo{display:flex;flex-direction:column;align-items:center;gap:0.3rem}
-.compare-logo-img{width:36px;height:36px;border-radius:8px;object-fit:contain;background:var(--bg3);border:1px solid var(--border)}
-.compare-name{font-size:0.78rem;color:var(--text3)}
-.compare-name.ours{color:var(--gold);font-weight:800;font-size:0.82rem}
-.feat-icon{color:var(--text3);margin-right:0.5rem;font-size:0.85rem}
+.chk-y{width:26px;height:26px;border-radius:50%;background:var(--green-dim);border:1.5px solid var(--green2);color:var(--green);display:inline-flex;align-items:center;justify-content:center;font-size:0.75rem;font-weight:800}
+.chk-n{width:26px;height:26px;border-radius:50%;background:rgba(200,200,200,0.15);border:1.5px solid #d0d0d0;color:#c0c0c0;display:inline-flex;align-items:center;justify-content:center;font-size:0.7rem}
+.c-logo{display:flex;flex-direction:column;align-items:center;gap:0.3rem}
+.c-logo-img{width:36px;height:36px;border-radius:8px;background:var(--bg3);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;font-size:1.2rem;object-fit:contain}
+.c-name{font-size:0.78rem;color:var(--text3)}
+.c-name.ours{color:var(--gold);font-weight:800;font-size:0.82rem}
+.fi{color:var(--text3);margin-right:0.4rem}
 .compare-cta{text-align:center;margin-top:2.5rem}
 .compare-cta p{font-size:1.1rem;font-weight:600;color:var(--text);margin-bottom:1rem}
+.btn-outline{padding:0.78rem 1.6rem;border-radius:8px;border:1.5px solid var(--border2);color:var(--text2);background:transparent;font-size:0.88rem;font-weight:600;text-decoration:none;display:inline-flex;align-items:center;gap:0.5rem;transition:all 0.25s}
+.btn-outline:hover{border-color:var(--gold);color:var(--gold)}
 
-/* ── TESTIMONIALS ── */
-#testimonials{background:var(--bg2)}
+/* TESTIMONIALS */
+#testimonials{background:#fff}
 .testi-grid{display:flex;gap:1rem;margin-top:2.5rem;overflow-x:auto;padding-bottom:0.5rem}
 .testi-grid::-webkit-scrollbar{height:3px}
 .testi-grid::-webkit-scrollbar-thumb{background:var(--gold)}
-.testi-video-wrap{flex-shrink:0;border-radius:10px;overflow:hidden;border:1.5px solid var(--border2);transition:all 0.2s;box-shadow:var(--shadow)}
-.testi-video-wrap:hover{border-color:var(--gold);box-shadow:var(--shadow2);transform:translateY(-2px)}
-.testi-video-wrap iframe{display:block;border:none;width:200px;height:356px}
+.testi-wrap{flex-shrink:0;border-radius:10px;overflow:hidden;border:1.5px solid var(--border2);transition:all 0.2s;box-shadow:var(--shadow)}
+.testi-wrap:hover{border-color:var(--gold);box-shadow:var(--shadow2);transform:translateY(-2px)}
+.testi-wrap iframe{display:block;border:none;width:200px;height:356px}
 
-/* ── FAQ ── */
-#faq{background:#fff}
+/* FAQ */
+#faq{background:var(--bg2)}
 .faq-list{max-width:780px;margin:3rem auto 0;display:flex;flex-direction:column;gap:0.75rem}
-.faq-item{background:var(--bg2);border:1.5px solid var(--border);border-radius:var(--r2);overflow:hidden;transition:all 0.2s;box-shadow:var(--shadow)}
-.faq-item.open{border-color:var(--gold);background:#fff}
+.faq-item{background:#fff;border:1.5px solid var(--border);border-radius:var(--r2);overflow:hidden;transition:all 0.2s;box-shadow:var(--shadow)}
+.faq-item.open{border-color:var(--gold)}
 .faq-q{padding:1.1rem 1.25rem;display:flex;align-items:center;gap:0.75rem;cursor:pointer;font-weight:600;color:var(--text);font-size:0.92rem;user-select:none}
-.faq-q-icon{color:var(--gold);font-size:0.9rem;flex-shrink:0}
-.faq-q .chevron{margin-left:auto;color:var(--text3);transition:transform 0.3s;font-size:0.85rem}
-.faq-item.open .chevron{transform:rotate(180deg);color:var(--gold)}
+.faq-q-icon{color:var(--gold);flex-shrink:0}
+.faq-q .chev{margin-left:auto;color:var(--text3);transition:transform 0.3s}
+.faq-item.open .chev{transform:rotate(180deg);color:var(--gold)}
 .faq-a{max-height:0;overflow:hidden;transition:max-height 0.35s ease,padding 0.2s}
 .faq-item.open .faq-a{max-height:200px;padding:0 1.25rem 1.1rem}
 .faq-a-inner{display:flex;align-items:flex-start;gap:0.6rem;font-size:0.87rem;color:var(--text2);line-height:1.7}
 .faq-a-inner::before{content:'✦';color:var(--gold);font-size:0.7rem;margin-top:3px;flex-shrink:0}
 
-/* ── FINAL CTA ── */
-#finalcta{
-  background:linear-gradient(160deg, var(--green) 0%, #1a6434 40%, #2d7a40 100%);
-  text-align:center;padding:6rem 2rem;position:relative;overflow:hidden;
-}
-#finalcta::before{
-  content:'';position:absolute;top:-200px;left:50%;transform:translateX(-50%);
-  width:900px;height:600px;border-radius:50%;
-  background:radial-gradient(circle,rgba(201,168,76,0.15) 0%,transparent 70%);
-  pointer-events:none;
-}
+/* FINAL CTA */
+#finalcta{background:linear-gradient(160deg,var(--green) 0%,#1a6434 40%,#2d7a40 100%);text-align:center;padding:6rem 2rem;position:relative;overflow:hidden}
+#finalcta::before{content:'';position:absolute;top:-200px;left:50%;transform:translateX(-50%);width:900px;height:600px;border-radius:50%;background:radial-gradient(circle,rgba(201,168,76,0.15) 0%,transparent 70%);pointer-events:none}
 .finalcta-inner{max-width:680px;margin:0 auto;position:relative;z-index:1}
 .finalcta-logo{width:80px;height:80px;border-radius:16px;margin:0 auto 1.5rem;overflow:hidden;border:2px solid rgba(255,255,255,0.2);background:rgba(255,255,255,0.15)}
 .finalcta-logo img{width:100%;height:100%;object-fit:contain;padding:0.5rem}
@@ -269,25 +262,25 @@ section{padding:5rem 2rem}
 .finalcta-title span{color:var(--gold3)}
 .finalcta-sub{font-size:0.95rem;color:rgba(255,255,255,0.8);line-height:1.75;margin-bottom:2rem}
 .finalcta-btns{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap}
-.btn-white{padding:0.9rem 2rem;border-radius:8px;background:#fff;color:var(--green);font-size:0.92rem;font-weight:700;text-decoration:none;display:flex;align-items:center;gap:0.5rem;transition:all 0.25s;box-shadow:0 4px 16px rgba(0,0,0,0.15)}
+.btn-white{padding:0.9rem 2rem;border-radius:8px;background:#fff;color:var(--green);font-size:0.92rem;font-weight:700;text-decoration:none;display:inline-flex;align-items:center;gap:0.5rem;transition:all 0.25s;box-shadow:0 4px 16px rgba(0,0,0,0.15)}
 .btn-white:hover{background:var(--gold3);color:var(--text);transform:translateY(-2px)}
-.btn-gold-lg{padding:0.9rem 2rem;border-radius:8px;background:var(--gold);color:#fff;font-size:0.92rem;font-weight:700;text-decoration:none;display:flex;align-items:center;gap:0.5rem;transition:all 0.25s;box-shadow:0 4px 16px rgba(165,129,38,0.3)}
+.btn-gold-lg{padding:0.9rem 2rem;border-radius:8px;background:var(--gold);color:#fff;font-size:0.92rem;font-weight:700;text-decoration:none;display:inline-flex;align-items:center;gap:0.5rem;transition:all 0.25s;box-shadow:0 4px 16px rgba(165,129,38,0.3)}
 .btn-gold-lg:hover{background:var(--gold2);transform:translateY(-2px)}
-.finalcta-stats{display:flex;gap:2rem;justify-content:center;margin-top:2.5rem;flex-wrap:wrap}
+.fcstats{display:flex;gap:2rem;justify-content:center;margin-top:2.5rem;flex-wrap:wrap}
 .fcstat{display:flex;align-items:center;gap:0.5rem;font-size:0.88rem;color:rgba(255,255,255,0.75)}
 .fcstat-num{font-size:1.3rem;font-weight:800;color:#fff}
 .fcstat-icon{color:var(--gold3)}
 
-/* ── FOOTER ── */
+/* FOOTER */
 footer{background:var(--bg2);border-top:1.5px solid var(--border);padding:4rem 2rem 2rem}
 .footer-inner{max-width:1200px;margin:0 auto}
 .footer-top{display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr;gap:3rem;margin-bottom:3rem}
 .footer-brand{display:flex;align-items:center;gap:0.6rem;margin-bottom:0.8rem}
 .footer-brand img{height:36px;width:auto}
 .footer-brand-name{font-size:1rem;font-weight:700;color:var(--text)}
-.footer-brand-desc{font-size:0.82rem;color:var(--text3);line-height:1.65;max-width:260px;margin-bottom:1rem}
-.footer-socials{display:flex;gap:0.5rem}
-.fsoc{width:34px;height:34px;border-radius:7px;background:#fff;border:1px solid var(--border2);color:var(--text2);display:flex;align-items:center;justify-content:center;text-decoration:none;font-size:0.85rem;transition:all 0.2s;box-shadow:var(--shadow)}
+.footer-desc{font-size:0.82rem;color:var(--text3);line-height:1.65;max-width:260px;margin-bottom:1rem}
+.fsocs{display:flex;gap:0.5rem}
+.fsoc{width:34px;height:34px;border-radius:7px;background:#fff;border:1px solid var(--border2);color:var(--text2);display:flex;align-items:center;justify-content:center;text-decoration:none;transition:all 0.2s;box-shadow:var(--shadow)}
 .fsoc:hover{border-color:var(--gold);color:var(--gold)}
 .footer-col-title{font-size:0.78rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--text3);margin-bottom:1rem}
 .footer-links{list-style:none;display:flex;flex-direction:column;gap:0.55rem}
@@ -296,33 +289,30 @@ footer{background:var(--bg2);border-top:1.5px solid var(--border);padding:4rem 2
 .footer-bottom{border-top:1px solid var(--border);padding-top:1.5rem;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem}
 .footer-copy{font-size:0.78rem;color:var(--text3)}
 .footer-legal{display:flex;gap:1.5rem}
-.footer-legal a{font-size:0.78rem;color:var(--text3);text-decoration:none;transition:color 0.2s}
+.footer-legal a{font-size:0.78rem;color:var(--text3);text-decoration:none}
 .footer-legal a:hover{color:var(--gold)}
 
-/* ── ANIMATIONS ── */
+/* REVEAL */
 .reveal{opacity:0;transform:translateY(28px);transition:opacity 0.65s ease,transform 0.65s ease}
 .reveal.in{opacity:1;transform:none}
 
-/* ── HAMBURGER ── */
+/* HAMBURGER */
 .hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:8px;margin-left:auto;background:none;border:none;z-index:200}
 .hamburger span{display:block;width:22px;height:2px;background:var(--text);border-radius:2px;transition:all 0.3s}
 .hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
 .hamburger.open span:nth-child(2){opacity:0;transform:scaleX(0)}
 .hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
-
-/* ── MOBILE MENU DRAWER ── */
-.mobile-menu{display:none;position:fixed;top:64px;left:0;right:0;bottom:0;background:rgba(255,255,255,0.98);backdrop-filter:blur(20px);z-index:99;flex-direction:column;padding:2rem 1.5rem;gap:0;overflow-y:auto;border-top:1px solid var(--border)}
+.mobile-menu{display:none;position:fixed;top:64px;left:0;right:0;bottom:0;background:rgba(255,255,255,0.98);backdrop-filter:blur(20px);z-index:99;flex-direction:column;padding:2rem 1.5rem;overflow-y:auto;border-top:1px solid var(--border)}
 .mobile-menu.open{display:flex}
 .mobile-menu a{padding:1rem 0;font-size:1.1rem;font-weight:600;color:var(--text2);text-decoration:none;border-bottom:1px solid var(--border);display:block;transition:color 0.2s}
 .mobile-menu a:hover{color:var(--gold)}
-.mobile-menu a:last-child{border-bottom:none}
 .mobile-menu-cta{display:flex;flex-direction:column;gap:0.75rem;margin-top:1.5rem}
 .mobile-menu-cta a{display:flex;align-items:center;justify-content:center;gap:0.5rem;padding:0.9rem;border-radius:10px;font-size:1rem;font-weight:700;text-decoration:none;transition:all 0.2s}
-.mmcta-call{background:var(--green);color:#fff;box-shadow:0 4px 16px rgba(30,122,62,0.2)}
+.mmcta-call{background:var(--green);color:#fff}
 .mmcta-call:hover{background:var(--gold)!important;color:#fff!important}
 .mmcta-est{background:var(--gold-bg);border:1.5px solid var(--gold);color:var(--gold)}
 
-/* ── TABLET 1024 ── */
+/* RESPONSIVE */
 @media(max-width:1024px){
   .hero-inner{grid-template-columns:1fr;gap:2.5rem}
   .services-grid{grid-template-columns:repeat(2,1fr)}
@@ -330,175 +320,98 @@ footer{background:var(--bg2);border-top:1.5px solid var(--border);padding:4rem 2
   .about-img-wrapper{max-width:360px;margin:0 auto}
   .footer-top{grid-template-columns:1fr 1fr}
   .qs-grid{grid-template-columns:repeat(2,1fr)}
-  .compare-table{font-size:0.78rem}
-  .compare-table th,.compare-table td{padding:0.7rem 0.7rem}
+  .gallery-grid{grid-template-columns:1fr 1fr}
 }
-
-/* ── MOBILE 768 ── */
 @media(max-width:768px){
-  /* Nav */
   nav{padding:0 1rem;height:60px}
+  .nav-inner{grid-template-columns:1fr auto}
   .nav-links{display:none}
-  .nav-right{display:none}
+  .nav-right .nav-btn,.nav-right .nav-btn-primary{display:none}
   .hamburger{display:flex}
   .mobile-menu{top:60px}
-  .nav-logo-text{display:none}
   .nav-logo img{height:44px}
-
-  /* Floating social — hide on mobile */
   .social-float{display:none}
-  .scroll-top{right:1rem;bottom:1rem;width:36px;height:36px;font-size:0.9rem}
-
-  /* Sections */
+  .scroll-top{right:1rem;bottom:1rem;width:36px;height:36px}
   section{padding:3.5rem 1.2rem}
-
-  /* Hero */
   #hero{padding-top:5.5rem;padding-bottom:2rem}
   .hero-inner{grid-template-columns:1fr;gap:2rem}
-  .hero-title{font-size:clamp(2rem,8vw,2.6rem);letter-spacing:-0.02em}
-  .hero-badge{font-size:0.72rem}
-  .hero-sub{font-size:0.9rem;max-width:100%}
-  .hero-actions{gap:0.6rem}
-  .btn-primary,.btn-ghost{padding:0.7rem 1.2rem;font-size:0.82rem}
-  .hero-stats{gap:1.5rem;margin-top:2rem;display:flex}
+  .hero-title{font-size:clamp(2rem,8vw,2.6rem)}
+  .hero-sub{max-width:100%}
+  .hero-stats{gap:1.5rem;margin-top:2rem;flex-wrap:wrap}
   .stat-num{font-size:1.3rem}
-  .hero-chat{border-radius:10px;display:block}
   .chat-body{padding:0.75rem;gap:0.75rem}
   .chat-bubble{font-size:0.73rem;padding:0.55rem 0.75rem}
-  .chat-bubble.bot-msg{font-size:0.7rem}
-
-  /* Quick start */
   .qs-grid{grid-template-columns:1fr;gap:2rem;margin-top:2rem}
-  .qs-card{padding:1.5rem}
-
-  /* About */
   .about-grid{grid-template-columns:1fr;gap:1.5rem}
-  .about-img-wrapper{max-width:280px;aspect-ratio:1}
-  .about-title{font-size:1.6rem}
-  .about-desc{font-size:0.88rem}
-  .about-points{gap:0.65rem}
-  .about-point{padding:0.75rem}
-
-  /* Services */
+  .about-img-wrapper{max-width:280px}
   .services-grid{grid-template-columns:1fr 1fr;gap:0.75rem}
   .svc-card{padding:1.1rem}
-  .svc-icon{width:40px;height:40px;font-size:1.1rem;margin-bottom:0.75rem}
-  .svc-title{font-size:0.85rem}
-  .svc-desc{font-size:0.75rem}
-
-  /* Comparison — horizontal scroll */
-  #compare .section-inner{padding:0}
-  .compare-table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:0 -1.2rem;padding:0 1.2rem}
+  .gallery-grid{grid-template-columns:1fr;gap:1rem}
+  .gallery-card img{height:240px}
+  .compare-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch}
   .compare-table{min-width:560px;font-size:0.75rem}
   .compare-table th,.compare-table td{padding:0.65rem 0.6rem}
-  .compare-table th:first-child,.compare-table td:first-child{padding-left:0.9rem;font-size:0.75rem}
-  .check-yes,.check-no{width:22px;height:22px;font-size:0.65rem}
-  .compare-logo-img{width:28px;height:28px}
-  .compare-name{font-size:0.68rem}
-  .compare-cta{padding:0 1.2rem}
-
-  /* Testimonials */
-  .testi-grid{gap:0.75rem;padding-bottom:0.75rem}
-  .testi-video-wrap iframe{width:160px;height:285px}
-
-  /* FAQ */
-  .faq-list{margin-top:2rem}
+  .testi-wrap iframe{width:160px;height:285px}
   .faq-q{font-size:0.85rem;padding:0.9rem 1rem}
-  .faq-a-inner{font-size:0.82rem}
-
-  /* Final CTA */
   #finalcta{padding:4rem 1.2rem}
   .finalcta-title{font-size:1.75rem}
-  .finalcta-sub{font-size:0.88rem}
-  .finalcta-btns{flex-direction:column;align-items:center;gap:0.75rem}
-  .btn-white,.btn-gold-lg{width:100%;max-width:320px;justify-content:center;padding:0.85rem 1.5rem}
-  .finalcta-stats{gap:1rem;margin-top:1.75rem}
-  .fcstat{font-size:0.8rem}
-  .fcstat-num{font-size:1.1rem}
-
-  /* Footer */
+  .finalcta-btns{flex-direction:column;align-items:center}
+  .btn-white,.btn-gold-lg{width:100%;max-width:320px;justify-content:center}
   .footer-top{grid-template-columns:1fr;gap:2rem}
   footer{padding:3rem 1.2rem 2rem}
-  .footer-bottom{flex-direction:column;align-items:flex-start;gap:0.75rem}
-
-  /* Section titles */
+  .footer-bottom{flex-direction:column;align-items:flex-start}
   .section-title{font-size:1.6rem}
-  .section-sub{font-size:0.87rem}
 }
-
-/* ── SMALL MOBILE 480 ── */
 @media(max-width:480px){
   .services-grid{grid-template-columns:1fr}
   .hero-title{font-size:1.9rem}
-  .testi-video-wrap iframe{width:140px;height:249px}
-  .hero-stats{flex-wrap:wrap;gap:1rem}
-  .finalcta-logo{width:64px;height:64px}
+  .testi-wrap iframe{width:140px;height:249px}
 }
 </style>
 </head>
 <body>
+
 <div class="progress-bar" id="progressBar"></div>
 
 <!-- FLOATING SOCIAL -->
 <div class="social-float">
-  <!-- Google Reviews -->
   <a href="https://share.google/kBf1gE6go8QIPGcQb" target="_blank" rel="noopener" class="sf-btn sf-google" data-label="Google Reviews">
-    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M21.805 10.023H12.18v3.954h5.594c-.242 1.242-.975 2.297-2.082 3.004l3.364 2.614c1.962-1.811 3.094-4.476 3.094-7.657 0-.621-.056-1.22-.155-1.797-.041-.237-.19-.118-.19-.118z" fill="#4285F4"/>
-      <path d="M12.18 22c2.81 0 5.168-.932 6.89-2.527l-3.364-2.614c-.932.625-2.125.994-3.526.994-2.713 0-5.01-1.832-5.832-4.294L2.96 16.03C4.68 19.479 8.168 22 12.18 22z" fill="#34A853"/>
-      <path d="M6.348 13.559a6.06 6.06 0 0 1-.317-1.94c0-.673.116-1.328.317-1.94L2.96 7.11A9.946 9.946 0 0 0 2 11.619c0 1.609.385 3.13 1.064 4.478l3.284-2.538z" fill="#FBBC05"/>
-      <path d="M12.18 5.326c1.527 0 2.895.525 3.974 1.556l2.981-2.981C17.34 2.24 14.99 1.238 12.18 1.238c-4.012 0-7.5 2.52-9.22 5.872l3.388 2.63c.822-2.462 3.119-4.414 5.832-4.414z" fill="#EA4335"/>
-    </svg>
+    <svg viewBox="0 0 24 24" fill="none"><path d="M21.805 10.023H12.18v3.954h5.594c-.242 1.242-.975 2.297-2.082 3.004l3.364 2.614c1.962-1.811 3.094-4.476 3.094-7.657 0-.621-.056-1.22-.155-1.797z" fill="#4285F4"/><path d="M12.18 22c2.81 0 5.168-.932 6.89-2.527l-3.364-2.614c-.932.625-2.125.994-3.526.994-2.713 0-5.01-1.832-5.832-4.294L2.96 16.03C4.68 19.479 8.168 22 12.18 22z" fill="#34A853"/><path d="M6.348 13.559a6.06 6.06 0 0 1-.317-1.94c0-.673.116-1.328.317-1.94L2.96 7.11A9.946 9.946 0 0 0 2 11.619c0 1.609.385 3.13 1.064 4.478l3.284-2.538z" fill="#FBBC05"/><path d="M12.18 5.326c1.527 0 2.895.525 3.974 1.556l2.981-2.981C17.34 2.24 14.99 1.238 12.18 1.238c-4.012 0-7.5 2.52-9.22 5.872l3.388 2.63c.822-2.462 3.119-4.414 5.832-4.414z" fill="#EA4335"/></svg>
   </a>
-  <!-- Instagram -->
   <a href="https://www.instagram.com/goldenoakpainting/reels/" target="_blank" rel="noopener" class="sf-btn sf-insta" data-label="Instagram">
-    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <defs>
-        <linearGradient id="ig-grad" x1="0%" y1="100%" x2="100%" y2="0%">
-          <stop offset="0%" stop-color="#FFDC80"/>
-          <stop offset="30%" stop-color="#F77737"/>
-          <stop offset="60%" stop-color="#C13584"/>
-          <stop offset="100%" stop-color="#515BD4"/>
-        </linearGradient>
-      </defs>
-      <rect x="2" y="2" width="20" height="20" rx="5.5" fill="url(#ig-grad)"/>
-      <circle cx="12" cy="12" r="4.2" stroke="#fff" stroke-width="1.8" fill="none"/>
-      <circle cx="17.2" cy="6.8" r="1.1" fill="#fff"/>
-    </svg>
+    <svg viewBox="0 0 24 24" fill="none"><defs><linearGradient id="ig1" x1="0%" y1="100%" x2="100%" y2="0%"><stop offset="0%" stop-color="#FFDC80"/><stop offset="30%" stop-color="#F77737"/><stop offset="60%" stop-color="#C13584"/><stop offset="100%" stop-color="#515BD4"/></linearGradient></defs><rect x="2" y="2" width="20" height="20" rx="5.5" fill="url(#ig1)"/><circle cx="12" cy="12" r="4.2" stroke="#fff" stroke-width="1.8" fill="none"/><circle cx="17.2" cy="6.8" r="1.1" fill="#fff"/></svg>
   </a>
-  <!-- Facebook -->
   <a href="https://www.facebook.com/p/Golden-Oak-Painting-61563279777927/" target="_blank" rel="noopener" class="sf-btn sf-fb" data-label="Facebook">
-    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <rect x="2" y="2" width="20" height="20" rx="5" fill="#1877F2"/>
-      <path d="M13.2 20v-7.3h2.4l.36-2.8H13.2V8.2c0-.8.22-1.35 1.38-1.35h1.47V4.35C15.8 4.24 14.86 4.13 13.9 4.13c-2.13 0-3.59 1.3-3.59 3.69v2.06H8v2.8h2.31V20h2.89z" fill="#fff"/>
-    </svg>
+    <svg viewBox="0 0 24 24" fill="none"><rect x="2" y="2" width="20" height="20" rx="5" fill="#1877F2"/><path d="M13.2 20v-7.3h2.4l.36-2.8H13.2V8.2c0-.8.22-1.35 1.38-1.35h1.47V4.35C15.8 4.24 14.86 4.13 13.9 4.13c-2.13 0-3.59 1.3-3.59 3.69v2.06H8v2.8h2.31V20h2.89z" fill="#fff"/></svg>
   </a>
 </div>
 
-<!-- SCROLL TOP -->
 <a href="#hero" class="scroll-top" id="scrollTop">↑</a>
 
 <!-- NAV -->
 <nav>
   <div class="nav-inner">
-    <a href="#hero" class="nav-logo">
-      <img src="https://cdn.prod.website-files.com/67cbada18d07464c05c5ebd4/68ad2a985d8bb816f4c9b958_GOP%20-%20Main%20Logo%20Transparent%20(1).png" alt="Golden Oak Painting">
-      <span class="nav-logo-text">Golden Oak Painting</span>
-    </a>
+    <!-- LEFT: Nav links -->
     <ul class="nav-links">
       <li><a href="#hero" class="active">Home</a></li>
       <li><a href="#about">About</a></li>
       <li><a href="#services">Services</a></li>
-      <li><a href="#testimonials">Reviews</a></li>
-      <li><a href="#faq">FAQ</a></li>
     </ul>
+    <!-- CENTER: Logo -->
+    <a href="#hero" class="nav-logo">
+      <img src="https://cdn.prod.website-files.com/67cbada18d07464c05c5ebd4/68ad2a985d8bb816f4c9b958_GOP%20-%20Main%20Logo%20Transparent%20(1).png" alt="Golden Oak Painting">
+    </a>
+    <!-- RIGHT: Buttons -->
     <div class="nav-right">
-      <a href="tel:4257258134" class="nav-btn">☎ (425) 725-8134</a>
-      <a href="#finalcta" class="nav-btn-primary">Get Estimate ↗</a>
+      <a href="tel:4257258134" class="nav-btn">
+        <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.44 2 2 0 0 1 3.58 1h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 8.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        Call Now
+      </a>
+      <a href="#finalcta" class="nav-btn-primary">Free Estimate ↗</a>
+      <button class="hamburger" id="hamburger" aria-label="Menu" onclick="toggleMobileMenu()">
+        <span></span><span></span><span></span>
+      </button>
     </div>
-    <button class="hamburger" id="hamburger" aria-label="Menu" onclick="toggleMobileMenu()">
-      <span></span><span></span><span></span>
-    </button>
   </div>
 </nav>
 
@@ -507,6 +420,7 @@ footer{background:var(--bg2);border-top:1.5px solid var(--border);padding:4rem 2
   <a href="#hero" onclick="closeMobileMenu()">🏠 Home</a>
   <a href="#about" onclick="closeMobileMenu()">ℹ️ About Us</a>
   <a href="#services" onclick="closeMobileMenu()">🎨 Services</a>
+  <a href="#gallery" onclick="closeMobileMenu()">📸 Our Work</a>
   <a href="#compare" onclick="closeMobileMenu()">📊 Compare</a>
   <a href="#testimonials" onclick="closeMobileMenu()">⭐ Reviews</a>
   <a href="#faq" onclick="closeMobileMenu()">❓ FAQ</a>
@@ -519,14 +433,14 @@ footer{background:var(--bg2);border-top:1.5px solid var(--border);padding:4rem 2
   </div>
 </div>
 
-<!-- ── HERO ── -->
+<!-- ═══════ HERO ═══════ -->
 <section id="hero">
   <div class="hero-inner">
-    <div class="reveal">
+    <div>
       <div class="hero-badge">🎨 Snohomish & King County's Trusted Painters</div>
       <h1 class="hero-title">
         Your Home<br>Deserves Expert<br>
-        <span class="accent">Painting</span> <span class="accent2">Done Right</span>
+        <span class="tw-line"><span id="twText" class="tw-text"></span><span class="tw-cursor"></span></span>
       </h1>
       <p class="hero-sub">Professional interior, exterior, and cabinet painting with <a href="#testimonials">50+ five-star reviews</a>. Fast, reliable, and backed by a <a href="#about">3-year warranty</a>.</p>
       <div class="hero-actions">
@@ -537,79 +451,66 @@ footer{background:var(--bg2);border-top:1.5px solid var(--border);padding:4rem 2
         <a href="#testimonials" class="btn-ghost">▶ Watch Reviews</a>
       </div>
       <div class="hero-stats">
-        <div class="stat-item">
+        <div>
           <div class="stat-num"><span class="stat-icon">⭐</span>50+</div>
           <div class="stat-label">5-Star Reviews</div>
         </div>
-        <div class="stat-item">
+        <div>
           <div class="stat-num"><span class="stat-icon">🏠</span>5+</div>
           <div class="stat-label">Yrs Experience</div>
         </div>
-        <div class="stat-item">
+        <div>
           <div class="stat-num"><span class="stat-icon">🛡</span>3yr</div>
           <div class="stat-label">Warranty</div>
         </div>
       </div>
     </div>
     <!-- CHAT MOCKUP -->
-    <div class="reveal" style="transition-delay:0.15s">
-      <div class="hero-chat">
-        <div class="chat-titlebar">
-          <div class="chat-dots">
-            <div class="chat-dot red"></div>
-            <div class="chat-dot yellow"></div>
-            <div class="chat-dot green"></div>
-          </div>
-          <span class="chat-title">Golden Oak Painting — Free Estimate Request</span>
+    <div class="hero-chat">
+      <div class="chat-titlebar">
+        <div class="chat-dots">
+          <div class="chat-dot red"></div><div class="chat-dot yellow"></div><div class="chat-dot green"></div>
         </div>
-        <div class="chat-body">
-          <div class="chat-msg">
-            <div class="chat-avatar"><span>👤</span></div>
-            <div class="chat-bubble user">Hi! I need exterior painting for my home in Bothell.</div>
-          </div>
-          <div class="chat-msg bot">
-            <div class="chat-avatar">
-              <img src="https://cdn.prod.website-files.com/67cbada18d07464c05c5ebd4/68fc0da2511a6544e79d4cd9_LOGO.png" alt="GOP" onerror="this.style.display='none';this.parentElement.innerHTML='🎨'">
-            </div>
-            <div class="chat-bubble bot-msg">
-<span class="token-name">🏡 Golden Oak Painting</span>
+        <span class="chat-title">Golden Oak Painting — Free Estimate Request</span>
+      </div>
+      <div class="chat-body">
+        <div class="chat-msg">
+          <div class="chat-avatar">👤</div>
+          <div class="chat-bubble user">Hi! I need exterior painting for my home in Bothell.</div>
+        </div>
+        <div class="chat-msg bot">
+          <div class="chat-avatar"><img src="https://cdn.prod.website-files.com/67cbada18d07464c05c5ebd4/68fc0da2511a6544e79d4cd9_LOGO.png" alt="GOP" onerror="this.parentElement.textContent='🎨'"></div>
+          <div class="chat-bubble bot-msg"><span class="token-name">🏡 Golden Oak Painting</span>
 <span class="line-label">Service  :</span> Exterior Painting
 <span class="line-label">Location :</span> Bothell, WA (King County)
 <span class="line-label">Warranty :</span> 3-Year Workmanship ✓
 <span class="line-label">Rating   :</span> ⭐⭐⭐⭐⭐ 50+ Reviews
-<span class="line-label">Schedule :</span> Free estimate within 24hrs
-            </div>
-          </div>
-          <div class="chat-msg">
-            <div class="chat-avatar"><span>👤</span></div>
-            <div class="chat-bubble user">Do you also do cabinet refinishing?</div>
-          </div>
-          <div class="chat-msg bot">
-            <div class="chat-avatar">
-              <img src="https://cdn.prod.website-files.com/67cbada18d07464c05c5ebd4/68fc0da2511a6544e79d4cd9_LOGO.png" alt="GOP" onerror="this.style.display='none';this.parentElement.innerHTML='🎨'">
-            </div>
-            <div class="chat-bubble bot-msg">
-<span class="token-name">Cabinet Refinishing ✓</span>
+<span class="line-label">Schedule :</span> Free estimate within 24hrs</div>
+        </div>
+        <div class="chat-msg">
+          <div class="chat-avatar">👤</div>
+          <div class="chat-bubble user">Do you also do cabinet refinishing?</div>
+        </div>
+        <div class="chat-msg bot">
+          <div class="chat-avatar"><img src="https://cdn.prod.website-files.com/67cbada18d07464c05c5ebd4/68fc0da2511a6544e79d4cd9_LOGO.png" alt="GOP" onerror="this.parentElement.textContent='🎨'"></div>
+          <div class="chat-bubble bot-msg"><span class="token-name">Cabinet Refinishing ✓</span>
 Premium coatings + expert prep
 Showroom finish, no full remodel 💰
-<span class="line-label">→</span> Call (425) 725-8134 to book!
-            </div>
-          </div>
+<span class="line-label">→</span> Call (425) 725-8134 to book!</div>
         </div>
-        <div class="chat-input-row">
-          <input class="chat-input" placeholder="Write a message..." readonly>
-          <button class="chat-send">→</button>
-        </div>
+      </div>
+      <div class="chat-input-row">
+        <input class="chat-input" placeholder="Write a message..." readonly>
+        <button class="chat-send">→</button>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ── QUICK START ── -->
+<!-- ═══════ HOW IT WORKS ═══════ -->
 <section id="quickstart">
   <div class="section-inner">
     <div style="text-align:center" class="reveal">
-      <div class="section-badge">⚡ Get Started in Simple Steps</div>
       <h2 class="section-title">Start Your <span>Painting Project</span></h2>
       <p class="section-sub">From first call to final walkthrough — no stress, no surprises. Just beautiful results.</p>
     </div>
@@ -629,13 +530,11 @@ Showroom finish, no full remodel 💰
         <div class="qs-icon">🎨</div>
         <div class="qs-card-title accent">Choose Your Colors</div>
         <div class="qs-card-desc">Our experts help you find the perfect palette that matches your vision, space, and lifestyle — free color consultation included.</div>
-        <div class="qs-commands">
-          <div class="qs-cmd-label">Popular brands:</div>
-          <div class="qs-chips">
-            <span class="qs-chip">Sherwin-Williams</span>
-            <span class="qs-chip">Benjamin Moore</span>
-            <span class="qs-chip">Custom Match</span>
-          </div>
+        <div class="qs-cmd-label">Popular brands:</div>
+        <div class="qs-chips">
+          <span class="qs-chip">Sherwin-Williams</span>
+          <span class="qs-chip">Benjamin Moore</span>
+          <span class="qs-chip">Custom Match</span>
         </div>
       </div>
       <div class="qs-card">
@@ -643,21 +542,19 @@ Showroom finish, no full remodel 💰
         <div class="qs-icon">🏡</div>
         <div class="qs-card-title">We Paint, You Relax</div>
         <div class="qs-card-desc">We prep, protect, and paint with precision. Final walkthrough — we don't leave until you're completely satisfied.</div>
-        <div class="qs-commands">
-          <div class="qs-cmd-label">Services available:</div>
-          <div class="qs-chips">
-            <span class="qs-chip">Exterior</span>
-            <span class="qs-chip">Interior</span>
-            <span class="qs-chip">Cabinets</span>
-            <span class="qs-chip">Decks</span>
-          </div>
+        <div class="qs-cmd-label">Services available:</div>
+        <div class="qs-chips">
+          <span class="qs-chip">Exterior</span>
+          <span class="qs-chip">Interior</span>
+          <span class="qs-chip">Cabinets</span>
+          <span class="qs-chip">Decks</span>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ── ABOUT ── -->
+<!-- ═══════ ABOUT ═══════ -->
 <section id="about">
   <div class="section-inner">
     <div class="about-grid">
@@ -672,31 +569,19 @@ Showroom finish, no full remodel 💰
         <div class="about-points">
           <div class="about-point">
             <div class="apoint-icon">⚡</div>
-            <div>
-              <div class="apoint-title">Free Estimates</div>
-              <div class="apoint-desc">No-pressure quotes with detailed scope and pricing — we come to you</div>
-            </div>
+            <div><div class="apoint-title">Free Estimates</div><div class="apoint-desc">No-pressure quotes with detailed scope and pricing — we come to you</div></div>
           </div>
           <div class="about-point">
             <div class="apoint-icon">🛡</div>
-            <div>
-              <div class="apoint-title">3-Year Workmanship Warranty</div>
-              <div class="apoint-desc">We stand behind every job with a full guarantee on our work</div>
-            </div>
+            <div><div class="apoint-title">3-Year Workmanship Warranty</div><div class="apoint-desc">We stand behind every job with a full guarantee on our work</div></div>
           </div>
           <div class="about-point">
             <div class="apoint-icon">📍</div>
-            <div>
-              <div class="apoint-title">All of Snohomish & King County</div>
-              <div class="apoint-desc">Bothell, Kirkland, Seattle, Edmonds, Everett, and surrounding areas</div>
-            </div>
+            <div><div class="apoint-title">All of Snohomish & King County</div><div class="apoint-desc">Bothell, Kirkland, Seattle, Edmonds, Everett, and surrounding areas</div></div>
           </div>
           <div class="about-point">
             <div class="apoint-icon">⭐</div>
-            <div>
-              <div class="apoint-title">50+ Five-Star Reviews</div>
-              <div class="apoint-desc">Real reviews from real Washington homeowners — see them below</div>
-            </div>
+            <div><div class="apoint-title">50+ Five-Star Reviews</div><div class="apoint-desc">Real reviews from real Washington homeowners — see them below</div></div>
           </div>
         </div>
         <a href="#finalcta" class="btn-docs">Get Your Free Estimate →</a>
@@ -705,7 +590,7 @@ Showroom finish, no full remodel 💰
   </div>
 </section>
 
-<!-- ── SERVICES ── -->
+<!-- ═══════ SERVICES ═══════ -->
 <section id="services">
   <div class="section-inner">
     <div class="reveal" style="text-align:center">
@@ -713,143 +598,95 @@ Showroom finish, no full remodel 💰
       <p class="section-sub">Everything your home needs — from a single room refresh to a complete exterior transformation.</p>
     </div>
     <div class="services-grid reveal" style="transition-delay:0.1s">
-      <div class="svc-card">
-        <div class="svc-icon">🏠</div>
-        <div class="svc-title">Exterior Painting</div>
-        <div class="svc-desc">Boost curb appeal and protect your home with durable, weather-resistant premium paint.</div>
-      </div>
-      <div class="svc-card">
-        <div class="svc-icon">🖼</div>
-        <div class="svc-title">Interior Painting</div>
-        <div class="svc-desc">Smooth, flawless finishes for every room. Meticulous prep makes every coat perfect.</div>
-      </div>
-      <div class="svc-card">
-        <div class="svc-icon">🪵</div>
-        <div class="svc-title">Cabinet Refinishing</div>
-        <div class="svc-desc">Kitchen transformation without the remodel cost. Expert prep, showroom-quality finish.</div>
-      </div>
-      <div class="svc-card">
-        <div class="svc-icon">🌿</div>
-        <div class="svc-title">Deck Refinishing</div>
-        <div class="svc-desc">Restore and protect your deck through every Pacific Northwest season.</div>
-      </div>
-      <div class="svc-card">
-        <div class="svc-icon">🔧</div>
-        <div class="svc-title">Drywall Repair</div>
-        <div class="svc-desc">Seamless patches for cracks and holes — so smooth you'll never know they were there.</div>
-      </div>
-      <div class="svc-card">
-        <div class="svc-icon">✨</div>
-        <div class="svc-title">Popcorn Ceiling Removal</div>
-        <div class="svc-desc">Smooth out dated ceilings for a clean, modern feel without the hassle.</div>
-      </div>
-      <div class="svc-card">
-        <div class="svc-icon">🎨</div>
-        <div class="svc-title">Color Consultation</div>
-        <div class="svc-desc">Expert guidance on the perfect palette for your home's style and lighting.</div>
-      </div>
-      <div class="svc-card">
-        <div class="svc-icon">📋</div>
-        <div class="svc-title">Free Estimates</div>
-        <div class="svc-desc">Detailed, honest quotes with no pressure and no hidden fees — ever.</div>
-      </div>
+      <div class="svc-card"><div class="svc-icon">🏠</div><div class="svc-title">Exterior Painting</div><div class="svc-desc">Boost curb appeal and protect your home with durable, weather-resistant premium paint.</div></div>
+      <div class="svc-card"><div class="svc-icon">🖼</div><div class="svc-title">Interior Painting</div><div class="svc-desc">Smooth, flawless finishes for every room. Meticulous prep makes every coat perfect.</div></div>
+      <div class="svc-card"><div class="svc-icon">🪵</div><div class="svc-title">Cabinet Refinishing</div><div class="svc-desc">Kitchen transformation without the remodel cost. Expert prep, showroom-quality finish.</div></div>
+      <div class="svc-card"><div class="svc-icon">🌿</div><div class="svc-title">Deck Refinishing</div><div class="svc-desc">Restore and protect your deck through every Pacific Northwest season.</div></div>
+      <div class="svc-card"><div class="svc-icon">🔧</div><div class="svc-title">Drywall Repair</div><div class="svc-desc">Seamless patches for cracks and holes — so smooth you'll never know they were there.</div></div>
+      <div class="svc-card"><div class="svc-icon">✨</div><div class="svc-title">Popcorn Ceiling Removal</div><div class="svc-desc">Smooth out dated ceilings for a clean, modern feel without the hassle.</div></div>
+      <div class="svc-card"><div class="svc-icon">🎨</div><div class="svc-title">Color Consultation</div><div class="svc-desc">Expert guidance on the perfect palette for your home's style and lighting.</div></div>
+      <div class="svc-card"><div class="svc-icon">📋</div><div class="svc-title">Free Estimates</div><div class="svc-desc">Detailed, honest quotes with no pressure and no hidden fees — ever.</div></div>
     </div>
   </div>
 </section>
 
-<!-- ── COMPARISON ── -->
+<!-- ═══════ GALLERY ═══════ -->
+<section id="gallery">
+  <div class="section-inner">
+    <div class="reveal" style="text-align:center">
+      <h2 class="section-title">Our <span>Work</span></h2>
+      <p class="section-sub">Real results from real homes across Snohomish & King County. Click any photo to enlarge.</p>
+    </div>
+    <div class="gallery-grid reveal" style="transition-delay:0.1s">
+      <div class="gallery-card" onclick="openLightbox('https://github.com/user-attachments/assets/7d2f37ed-d388-4088-b359-d1dee5425d61','Cabinet Refinishing — Kitchen')">
+        <img src="https://github.com/user-attachments/assets/7d2f37ed-d388-4088-b359-d1dee5425d61" alt="Cabinet refinishing kitchen" loading="lazy">
+        <div class="gallery-label">
+          <div class="gallery-tag">🪵 Cabinets</div>
+          <div class="gallery-title">Cabinet Refinishing</div>
+          <div class="gallery-sub">Kitchen — showroom-quality finish</div>
+        </div>
+      </div>
+      <div class="gallery-card" onclick="openLightbox('https://github.com/user-attachments/assets/d16e6cbf-762d-46e4-8ebe-38a9ed447080','Interior Painting — Living Room')">
+        <img src="https://github.com/user-attachments/assets/d16e6cbf-762d-46e4-8ebe-38a9ed447080" alt="Interior painting living room" loading="lazy">
+        <div class="gallery-label">
+          <div class="gallery-tag">🖼 Interior</div>
+          <div class="gallery-title">Interior Painting</div>
+          <div class="gallery-sub">Living room — flawless smooth finish</div>
+        </div>
+      </div>
+      <div class="gallery-card" onclick="openLightbox('https://github.com/user-attachments/assets/ce7e3dfd-44c2-42c7-9e99-6e33efa50797','Interior Painting — Bedroom')">
+        <img src="https://github.com/user-attachments/assets/ce7e3dfd-44c2-42c7-9e99-6e33efa50797" alt="Interior painting bedroom" loading="lazy">
+        <div class="gallery-label">
+          <div class="gallery-tag">🏠 Interior</div>
+          <div class="gallery-title">Interior Painting</div>
+          <div class="gallery-sub">Bedroom — clean lines, expert prep</div>
+        </div>
+      </div>
+    </div>
+    <div style="text-align:center;margin-top:2rem" class="reveal">
+      <a href="tel:4257258134" class="btn-primary">📷 Want Results Like These? Call Us →</a>
+    </div>
+  </div>
+</section>
+
+<!-- LIGHTBOX -->
+<div class="lightbox" id="lightbox" onclick="closeLightbox()">
+  <img id="lbImg" src="" alt="" onclick="event.stopPropagation()">
+  <div class="lb-cap" id="lbCap"></div>
+  <div class="lb-close" onclick="closeLightbox()">✕</div>
+</div>
+
+<!-- ═══════ COMPARE ═══════ -->
 <section id="compare">
   <div class="section-inner">
     <div class="reveal" style="text-align:center">
       <h2 class="section-title">Compare with <span>Competitors</span></h2>
       <p class="section-sub">See how Golden Oak stacks up against other painters in the area.</p>
     </div>
-    <div class="reveal compare-table-wrap" style="transition-delay:0.1s">
+    <div class="reveal compare-wrap" style="transition-delay:0.1s">
       <table class="compare-table">
         <thead>
           <tr>
             <th style="text-align:left;padding-left:1.5rem">Feature</th>
             <th class="col-us-head">
-              <div class="compare-logo">
-                <img src="https://cdn.prod.website-files.com/67cbada18d07464c05c5ebd4/68fc0da2511a6544e79d4cd9_LOGO.png" alt="GOP" class="compare-logo-img" onerror="this.outerHTML='🏅'">
-                <span class="compare-name ours">Golden Oak</span>
+              <div class="c-logo">
+                <img src="https://cdn.prod.website-files.com/67cbada18d07464c05c5ebd4/68fc0da2511a6544e79d4cd9_LOGO.png" style="width:36px;height:36px;border-radius:8px;object-fit:contain;background:var(--bg3);border:1px solid var(--border)" onerror="this.outerHTML='🏅'">
+                <span class="c-name ours">Golden Oak</span>
               </div>
             </th>
-            <th>
-              <div class="compare-logo">
-                <div class="compare-logo-img" style="display:flex;align-items:center;justify-content:center;font-size:1.2rem">🏠</div>
-                <span class="compare-name">Budget Pro</span>
-              </div>
-            </th>
-            <th>
-              <div class="compare-logo">
-                <div class="compare-logo-img" style="display:flex;align-items:center;justify-content:center;font-size:1.2rem">🪣</div>
-                <span class="compare-name">QuickPaint</span>
-              </div>
-            </th>
-            <th>
-              <div class="compare-logo">
-                <div class="compare-logo-img" style="display:flex;align-items:center;justify-content:center;font-size:1.2rem">🔨</div>
-                <span class="compare-name">HandyGuy</span>
-              </div>
-            </th>
-            <th>
-              <div class="compare-logo">
-                <div class="compare-logo-img" style="display:flex;align-items:center;justify-content:center;font-size:1.2rem">🏪</div>
-                <span class="compare-name">Big Box Co.</span>
-              </div>
-            </th>
+            <th><div class="c-logo"><div class="c-logo-img">🏠</div><span class="c-name">Budget Pro</span></div></th>
+            <th><div class="c-logo"><div class="c-logo-img">🪣</div><span class="c-name">QuickPaint</span></div></th>
+            <th><div class="c-logo"><div class="c-logo-img">🔨</div><span class="c-name">HandyGuy</span></div></th>
+            <th><div class="c-logo"><div class="c-logo-img">🏪</div><span class="c-name">Big Box Co.</span></div></th>
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td><span class="feat-icon">🛡</span>3-Year Warranty</td>
-            <td class="col-us-td"><div class="check-yes" style="margin:0 auto">✓</div></td>
-            <td><div class="check-no" style="margin:0 auto">✕</div></td>
-            <td><div class="check-no" style="margin:0 auto">✕</div></td>
-            <td><div class="check-no" style="margin:0 auto">✕</div></td>
-            <td><div class="check-yes" style="margin:0 auto">✓</div></td>
-          </tr>
-          <tr>
-            <td><span class="feat-icon">📋</span>Free Estimate</td>
-            <td class="col-us-td"><div class="check-yes" style="margin:0 auto">✓</div></td>
-            <td><div class="check-yes" style="margin:0 auto">✓</div></td>
-            <td><div class="check-no" style="margin:0 auto">✕</div></td>
-            <td><div class="check-yes" style="margin:0 auto">✓</div></td>
-            <td><div class="check-no" style="margin:0 auto">✕</div></td>
-          </tr>
-          <tr>
-            <td><span class="feat-icon">🎨</span>Color Consultation</td>
-            <td class="col-us-td"><div class="check-yes" style="margin:0 auto">✓</div></td>
-            <td><div class="check-no" style="margin:0 auto">✕</div></td>
-            <td><div class="check-no" style="margin:0 auto">✕</div></td>
-            <td><div class="check-no" style="margin:0 auto">✕</div></td>
-            <td><div class="check-yes" style="margin:0 auto">✓</div></td>
-          </tr>
-          <tr>
-            <td><span class="feat-icon">🪵</span>Cabinet Refinishing</td>
-            <td class="col-us-td"><div class="check-yes" style="margin:0 auto">✓</div></td>
-            <td><div class="check-no" style="margin:0 auto">✕</div></td>
-            <td><div class="check-no" style="margin:0 auto">✕</div></td>
-            <td><div class="check-no" style="margin:0 auto">✕</div></td>
-            <td><div class="check-no" style="margin:0 auto">✕</div></td>
-          </tr>
-          <tr>
-            <td><span class="feat-icon">⭐</span>50+ 5-Star Reviews</td>
-            <td class="col-us-td"><div class="check-yes" style="margin:0 auto">✓</div></td>
-            <td><div class="check-no" style="margin:0 auto">✕</div></td>
-            <td><div class="check-yes" style="margin:0 auto">✓</div></td>
-            <td><div class="check-no" style="margin:0 auto">✕</div></td>
-            <td><div class="check-yes" style="margin:0 auto">✓</div></td>
-          </tr>
-          <tr>
-            <td><span class="feat-icon">🔧</span>Drywall Repair</td>
-            <td class="col-us-last"><div class="check-yes" style="margin:0 auto">✓</div></td>
-            <td><div class="check-no" style="margin:0 auto">✕</div></td>
-            <td><div class="check-no" style="margin:0 auto">✕</div></td>
-            <td><div class="check-yes" style="margin:0 auto">✓</div></td>
-            <td><div class="check-no" style="margin:0 auto">✕</div></td>
-          </tr>
+          <tr><td><span class="fi">🛡</span>3-Year Warranty</td><td class="col-us-td"><div class="chk-y" style="margin:0 auto">✓</div></td><td><div class="chk-n" style="margin:0 auto">✕</div></td><td><div class="chk-n" style="margin:0 auto">✕</div></td><td><div class="chk-n" style="margin:0 auto">✕</div></td><td><div class="chk-y" style="margin:0 auto">✓</div></td></tr>
+          <tr><td><span class="fi">📋</span>Free Estimate</td><td class="col-us-td"><div class="chk-y" style="margin:0 auto">✓</div></td><td><div class="chk-y" style="margin:0 auto">✓</div></td><td><div class="chk-n" style="margin:0 auto">✕</div></td><td><div class="chk-y" style="margin:0 auto">✓</div></td><td><div class="chk-n" style="margin:0 auto">✕</div></td></tr>
+          <tr><td><span class="fi">🎨</span>Color Consultation</td><td class="col-us-td"><div class="chk-y" style="margin:0 auto">✓</div></td><td><div class="chk-n" style="margin:0 auto">✕</div></td><td><div class="chk-n" style="margin:0 auto">✕</div></td><td><div class="chk-n" style="margin:0 auto">✕</div></td><td><div class="chk-y" style="margin:0 auto">✓</div></td></tr>
+          <tr><td><span class="fi">🪵</span>Cabinet Refinishing</td><td class="col-us-td"><div class="chk-y" style="margin:0 auto">✓</div></td><td><div class="chk-n" style="margin:0 auto">✕</div></td><td><div class="chk-n" style="margin:0 auto">✕</div></td><td><div class="chk-n" style="margin:0 auto">✕</div></td><td><div class="chk-n" style="margin:0 auto">✕</div></td></tr>
+          <tr><td><span class="fi">⭐</span>50+ 5-Star Reviews</td><td class="col-us-td"><div class="chk-y" style="margin:0 auto">✓</div></td><td><div class="chk-n" style="margin:0 auto">✕</div></td><td><div class="chk-y" style="margin:0 auto">✓</div></td><td><div class="chk-n" style="margin:0 auto">✕</div></td><td><div class="chk-y" style="margin:0 auto">✓</div></td></tr>
+          <tr><td><span class="fi">🔧</span>Drywall Repair</td><td class="col-us-last"><div class="chk-y" style="margin:0 auto">✓</div></td><td><div class="chk-n" style="margin:0 auto">✕</div></td><td><div class="chk-n" style="margin:0 auto">✕</div></td><td><div class="chk-y" style="margin:0 auto">✓</div></td><td><div class="chk-n" style="margin:0 auto">✕</div></td></tr>
         </tbody>
       </table>
     </div>
@@ -857,35 +694,35 @@ Showroom finish, no full remodel 💰
       <p>Ready to experience the difference?</p>
       <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap">
         <a href="tel:4257258134" class="btn-primary">☎ Call Now</a>
-        <a href="#finalcta" class="btn-ghost">Get Free Estimate</a>
+        <a href="#finalcta" class="btn-outline">Get Free Estimate</a>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ── TESTIMONIALS ── -->
+<!-- ═══════ TESTIMONIALS ═══════ -->
 <section id="testimonials">
   <div class="section-inner">
     <div class="reveal" style="text-align:center">
       <h2 class="section-title">What Homeowners <span>Say</span></h2>
-      <p class="section-sub">Real reviews from real Washington homeowners. See why our work speaks for itself.</p>
+      <p class="section-sub">Real video reviews from real Washington homeowners. See why our work speaks for itself.</p>
     </div>
     <div class="testi-grid reveal" style="transition-delay:0.1s">
-      <div class="testi-video-wrap"><iframe src="https://www.youtube.com/embed/4YASAHGElL4" title="Review" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
-      <div class="testi-video-wrap"><iframe src="https://www.youtube.com/embed/6cuHCz14meA" title="Review" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
-      <div class="testi-video-wrap"><iframe src="https://www.youtube.com/embed/GRa_gqt5Q9k" title="Review" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
-      <div class="testi-video-wrap"><iframe src="https://www.youtube.com/embed/RMLLyedawd0" title="Review" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
-      <div class="testi-video-wrap"><iframe src="https://www.youtube.com/embed/lS3eHMWQxOo" title="Review" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
-      <div class="testi-video-wrap"><iframe src="https://www.youtube.com/embed/3eh6YgVMYfk" title="Review" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
-      <div class="testi-video-wrap"><iframe src="https://www.youtube.com/embed/msYxgIUf45Q" title="Review" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
-      <div class="testi-video-wrap"><iframe src="https://www.youtube.com/embed/BvznNlMkzYE" title="Review" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
-      <div class="testi-video-wrap"><iframe src="https://www.youtube.com/embed/sZ3EEVB87dM" title="Review" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
-      <div class="testi-video-wrap"><iframe src="https://www.youtube.com/embed/830TGiuDWOM" title="Review" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+      <div class="testi-wrap"><iframe src="https://www.youtube.com/embed/4YASAHGElL4" title="Review" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+      <div class="testi-wrap"><iframe src="https://www.youtube.com/embed/6cuHCz14meA" title="Review" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+      <div class="testi-wrap"><iframe src="https://www.youtube.com/embed/GRa_gqt5Q9k" title="Review" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+      <div class="testi-wrap"><iframe src="https://www.youtube.com/embed/RMLLyedawd0" title="Review" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+      <div class="testi-wrap"><iframe src="https://www.youtube.com/embed/lS3eHMWQxOo" title="Review" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+      <div class="testi-wrap"><iframe src="https://www.youtube.com/embed/3eh6YgVMYfk" title="Review" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+      <div class="testi-wrap"><iframe src="https://www.youtube.com/embed/msYxgIUf45Q" title="Review" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+      <div class="testi-wrap"><iframe src="https://www.youtube.com/embed/BvznNlMkzYE" title="Review" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+      <div class="testi-wrap"><iframe src="https://www.youtube.com/embed/sZ3EEVB87dM" title="Review" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+      <div class="testi-wrap"><iframe src="https://www.youtube.com/embed/830TGiuDWOM" title="Review" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
     </div>
   </div>
 </section>
 
-<!-- ── FAQ ── -->
+<!-- ═══════ FAQ ═══════ -->
 <section id="faq">
   <div class="section-inner">
     <div class="reveal" style="text-align:center">
@@ -894,70 +731,34 @@ Showroom finish, no full remodel 💰
     </div>
     <div class="faq-list reveal" style="transition-delay:0.1s">
       <div class="faq-item open">
-        <div class="faq-q" onclick="toggleFaq(this)">
-          <span class="faq-q-icon">❓</span>
-          How much does a free estimate cost?
-          <span class="chevron">▾</span>
-        </div>
-        <div class="faq-a">
-          <div class="faq-a-inner">Nothing — our estimates are completely free with no obligation. We visit your home, assess the project, and provide a detailed written quote. Call (425) 725-8134 to schedule.</div>
-        </div>
+        <div class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-icon">❓</span>How much does a free estimate cost?<span class="chev">▾</span></div>
+        <div class="faq-a"><div class="faq-a-inner">Nothing — our estimates are completely free with no obligation. We visit your home, assess the project, and provide a detailed written quote. Call (425) 725-8134 to schedule.</div></div>
       </div>
       <div class="faq-item">
-        <div class="faq-q" onclick="toggleFaq(this)">
-          <span class="faq-q-icon">❓</span>
-          What areas do you serve?
-          <span class="chevron">▾</span>
-        </div>
-        <div class="faq-a">
-          <div class="faq-a-inner">We serve all of Snohomish and King County including Bothell, Kirkland, Bellevue, Seattle, Edmonds, Lynnwood, Everett, Redmond, and surrounding communities.</div>
-        </div>
+        <div class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-icon">❓</span>What areas do you serve?<span class="chev">▾</span></div>
+        <div class="faq-a"><div class="faq-a-inner">We serve all of Snohomish and King County including Bothell, Kirkland, Bellevue, Seattle, Edmonds, Lynnwood, Everett, Redmond, and surrounding communities.</div></div>
       </div>
       <div class="faq-item">
-        <div class="faq-q" onclick="toggleFaq(this)">
-          <span class="faq-q-icon">❓</span>
-          Do you offer a warranty?
-          <span class="chevron">▾</span>
-        </div>
-        <div class="faq-a">
-          <div class="faq-a-inner">Yes! We back every job with a 3-year workmanship warranty. If something isn't right within 3 years of completion, we'll fix it — no questions asked.</div>
-        </div>
+        <div class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-icon">❓</span>Do you offer a warranty?<span class="chev">▾</span></div>
+        <div class="faq-a"><div class="faq-a-inner">Yes! We back every job with a 3-year workmanship warranty. If something isn't right within 3 years of completion, we'll fix it — no questions asked.</div></div>
       </div>
       <div class="faq-item">
-        <div class="faq-q" onclick="toggleFaq(this)">
-          <span class="faq-q-icon">❓</span>
-          What paint brands do you use?
-          <span class="chevron">▾</span>
-        </div>
-        <div class="faq-a">
-          <div class="faq-a-inner">We use premium brands including Sherwin-Williams, Benjamin Moore, and Behr. During your consultation, we'll recommend the best product for your specific project and budget.</div>
-        </div>
+        <div class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-icon">❓</span>What paint brands do you use?<span class="chev">▾</span></div>
+        <div class="faq-a"><div class="faq-a-inner">We use premium brands including Sherwin-Williams, Benjamin Moore, and Behr. During your consultation, we'll recommend the best product for your specific project and budget.</div></div>
       </div>
       <div class="faq-item">
-        <div class="faq-q" onclick="toggleFaq(this)">
-          <span class="faq-q-icon">❓</span>
-          How long does exterior painting take?
-          <span class="chevron">▾</span>
-        </div>
-        <div class="faq-a">
-          <div class="faq-a-inner">Most exterior projects take 2–5 days depending on home size and complexity. We'll give you a firm timeline during your free estimate so you can plan accordingly.</div>
-        </div>
+        <div class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-icon">❓</span>How long does exterior painting take?<span class="chev">▾</span></div>
+        <div class="faq-a"><div class="faq-a-inner">Most exterior projects take 2–5 days depending on home size and complexity. We'll give you a firm timeline during your free estimate so you can plan accordingly.</div></div>
       </div>
       <div class="faq-item">
-        <div class="faq-q" onclick="toggleFaq(this)">
-          <span class="faq-q-icon">❓</span>
-          Are you licensed and insured?
-          <span class="chevron">▾</span>
-        </div>
-        <div class="faq-a">
-          <div class="faq-a-inner">Absolutely. Golden Oak Painting is fully licensed and insured in the State of Washington. You're fully protected every step of the way.</div>
-        </div>
+        <div class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-icon">❓</span>Are you licensed and insured?<span class="chev">▾</span></div>
+        <div class="faq-a"><div class="faq-a-inner">Absolutely. Golden Oak Painting is fully licensed and insured in the State of Washington. You're fully protected every step of the way.</div></div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ── FINAL CTA ── -->
+<!-- ═══════ FINAL CTA ═══════ -->
 <section id="finalcta">
   <div class="finalcta-inner reveal">
     <div class="finalcta-logo">
@@ -968,11 +769,11 @@ Showroom finish, no full remodel 💰
     <div class="finalcta-btns">
       <a href="tel:4257258134" class="btn-white">
         <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.44 2 2 0 0 1 3.58 1h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 8.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-        Call Now →
+        Call (425) 725-8134 →
       </a>
-      <a href="/cdn-cgi/l/email-protection#7d14131b123d1a1211191813121c160d1c14130914131a531e1210" class="btn-gold-lg">📋 Request Free Estimate →</a>
+      <a href="mailto:goldenoakpainting@gmail.com" class="btn-gold-lg">📋 Request Free Estimate →</a>
     </div>
-    <div class="finalcta-stats">
+    <div class="fcstats">
       <div class="fcstat"><span class="fcstat-icon">⭐</span><span class="fcstat-num">50+</span>&nbsp;5-Star Reviews</div>
       <div class="fcstat"><span class="fcstat-icon">🛡</span><span class="fcstat-num">3yr</span>&nbsp;Warranty</div>
       <div class="fcstat"><span class="fcstat-icon">📍</span><span class="fcstat-num">WA</span>&nbsp;Licensed & Insured</div>
@@ -980,7 +781,7 @@ Showroom finish, no full remodel 💰
   </div>
 </section>
 
-<!-- ── FOOTER ── */-->
+<!-- ═══════ FOOTER ═══════ -->
 <footer>
   <div class="footer-inner">
     <div class="footer-top">
@@ -989,8 +790,8 @@ Showroom finish, no full remodel 💰
           <img src="https://cdn.prod.website-files.com/67cbada18d07464c05c5ebd4/68ad2a985d8bb816f4c9b958_GOP%20-%20Main%20Logo%20Transparent%20(1).png" alt="Golden Oak Painting">
           <span class="footer-brand-name">Golden Oak Painting</span>
         </div>
-        <p class="footer-brand-desc">Professional painting services across Snohomish and King County, WA. Licensed, insured, and backed by a 3-year warranty.</p>
-        <div class="footer-socials">
+        <p class="footer-desc">Professional painting services across Snohomish and King County, WA. Licensed, insured, and backed by a 3-year warranty.</p>
+        <div class="fsocs">
           <a href="https://share.google/kBf1gE6go8QIPGcQb" target="_blank" rel="noopener" class="fsoc" title="Google Reviews">
             <svg viewBox="0 0 24 24" width="18" height="18" fill="none"><path d="M21.805 10.023H12.18v3.954h5.594c-.242 1.242-.975 2.297-2.082 3.004l3.364 2.614c1.962-1.811 3.094-4.476 3.094-7.657 0-.621-.056-1.22-.155-1.797z" fill="#4285F4"/><path d="M12.18 22c2.81 0 5.168-.932 6.89-2.527l-3.364-2.614c-.932.625-2.125.994-3.526.994-2.713 0-5.01-1.832-5.832-4.294L2.96 16.03C4.68 19.479 8.168 22 12.18 22z" fill="#34A853"/><path d="M6.348 13.559a6.06 6.06 0 0 1-.317-1.94c0-.673.116-1.328.317-1.94L2.96 7.11A9.946 9.946 0 0 0 2 11.619c0 1.609.385 3.13 1.064 4.478l3.284-2.538z" fill="#FBBC05"/><path d="M12.18 5.326c1.527 0 2.895.525 3.974 1.556l2.981-2.981C17.34 2.24 14.99 1.238 12.18 1.238c-4.012 0-7.5 2.52-9.22 5.872l3.388 2.63c.822-2.462 3.119-4.414 5.832-4.414z" fill="#EA4335"/></svg>
           </a>
@@ -1016,10 +817,10 @@ Showroom finish, no full remodel 💰
         <div class="footer-col-title">Company</div>
         <ul class="footer-links">
           <li><a href="#about">About Us</a></li>
+          <li><a href="#gallery">Our Work</a></li>
           <li><a href="#testimonials">Reviews</a></li>
           <li><a href="#faq">FAQ</a></li>
           <li><a href="#finalcta">Contact</a></li>
-          <li><a href="#compare">Why Choose Us</a></li>
         </ul>
       </div>
       <div>
@@ -1044,57 +845,96 @@ Showroom finish, no full remodel 💰
 </footer>
 
 <script>
-// ── SCROLL EVENTS ──
-window.addEventListener('scroll', () => {
-  const p = window.scrollY / (document.body.scrollHeight - window.innerHeight) * 100;
-  document.getElementById('progressBar').style.width = p + '%';
-  document.getElementById('scrollTop').classList.toggle('visible', window.scrollY > 400);
-  document.querySelectorAll('.nav-links a').forEach(a => {
+// ── TYPEWRITER ──
+(function(){
+  const phrases = [
+    'Interior Painters.',
+    'Exterior Painters.',
+    'Cabinet Refinishers.',
+    'Deck Refinishers.',
+    'Drywall Experts.',
+    'Painting Done Right.'
+  ];
+  const pauses = [1900,1900,1900,1900,1900,3000];
+  const el = document.getElementById('twText');
+  let pi=0, ci=0, del=false;
+  function tick(){
+    const w = phrases[pi];
+    if(!del){
+      el.textContent = w.slice(0,++ci);
+      if(ci===w.length){ del=true; return setTimeout(tick, pauses[pi]); }
+      setTimeout(tick, 70);
+    } else {
+      el.textContent = w.slice(0,--ci);
+      if(ci===0){ del=false; pi=(pi+1)%phrases.length; return setTimeout(tick,380); }
+      setTimeout(tick, 36);
+    }
+  }
+  setTimeout(tick, 1300);
+})();
+
+// ── LIGHTBOX ──
+function openLightbox(src, cap){
+  document.getElementById('lbImg').src = src;
+  document.getElementById('lbCap').textContent = cap;
+  document.getElementById('lightbox').classList.add('open');
+  document.body.style.overflow='hidden';
+}
+function closeLightbox(){
+  document.getElementById('lightbox').classList.remove('open');
+  document.body.style.overflow='';
+}
+document.addEventListener('keydown', e=>{ if(e.key==='Escape') closeLightbox(); });
+
+// ── SCROLL ──
+window.addEventListener('scroll', ()=>{
+  const pct = window.scrollY/(document.body.scrollHeight-window.innerHeight)*100;
+  document.getElementById('progressBar').style.width = pct+'%';
+  document.getElementById('scrollTop').classList.toggle('visible', window.scrollY>400);
+  document.querySelectorAll('.nav-links a').forEach(a=>{
     a.classList.remove('active');
-    const t = document.querySelector(a.getAttribute('href'));
-    if (t && window.scrollY >= t.offsetTop - 120 && window.scrollY < t.offsetTop + t.offsetHeight - 120) a.classList.add('active');
+    const s = document.querySelector(a.getAttribute('href'));
+    if(s && window.scrollY>=s.offsetTop-120 && window.scrollY<s.offsetTop+s.offsetHeight-120)
+      a.classList.add('active');
   });
-  if (document.getElementById('mobileMenu').classList.contains('open')) closeMobileMenu();
+  if(document.getElementById('mobileMenu').classList.contains('open')) closeMobileMenu();
 });
 
-// ── REVEAL ON SCROLL ──
-const io = new IntersectionObserver(entries => {
-  entries.forEach(e => {
-    if (e.isIntersecting) {
-      const siblings = [...e.target.parentElement.querySelectorAll('.reveal')];
-      setTimeout(() => e.target.classList.add('in'), Math.min(siblings.indexOf(e.target) * 90, 300));
+// ── REVEAL ──
+const io = new IntersectionObserver(entries=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){
+      const sib = [...e.target.parentElement.querySelectorAll('.reveal')];
+      setTimeout(()=>e.target.classList.add('in'), Math.min(sib.indexOf(e.target)*90,300));
       io.unobserve(e.target);
     }
   });
-}, {threshold:0.08});
-document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+},{threshold:0.08});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
 
-// ── FAQ ACCORDION ──
-function toggleFaq(el) {
-  const item = el.parentElement;
-  const wasOpen = item.classList.contains('open');
-  document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
-  if (!wasOpen) item.classList.add('open');
+// ── FAQ ──
+function toggleFaq(el){
+  const item=el.parentElement;
+  const wasOpen=item.classList.contains('open');
+  document.querySelectorAll('.faq-item').forEach(i=>i.classList.remove('open'));
+  if(!wasOpen) item.classList.add('open');
 }
 
-// ── HAMBURGER MENU ──
-function toggleMobileMenu() {
-  const menu = document.getElementById('mobileMenu');
-  const btn = document.getElementById('hamburger');
-  const isOpen = menu.classList.contains('open');
-  menu.classList.toggle('open', !isOpen);
-  btn.classList.toggle('open', !isOpen);
-  document.body.style.overflow = isOpen ? '' : 'hidden';
+// ── MOBILE MENU ──
+function toggleMobileMenu(){
+  const m=document.getElementById('mobileMenu'), b=document.getElementById('hamburger');
+  const open=m.classList.contains('open');
+  m.classList.toggle('open',!open); b.classList.toggle('open',!open);
+  document.body.style.overflow=open?'':'hidden';
 }
-function closeMobileMenu() {
+function closeMobileMenu(){
   document.getElementById('mobileMenu').classList.remove('open');
   document.getElementById('hamburger').classList.remove('open');
-  document.body.style.overflow = '';
+  document.body.style.overflow='';
 }
-document.addEventListener('click', e => {
-  const menu = document.getElementById('mobileMenu');
-  const btn = document.getElementById('hamburger');
-  if (menu.classList.contains('open') && !menu.contains(e.target) && !btn.contains(e.target)) closeMobileMenu();
+document.addEventListener('click', e=>{
+  const m=document.getElementById('mobileMenu'), b=document.getElementById('hamburger');
+  if(m.classList.contains('open') && !m.contains(e.target) && !b.contains(e.target)) closeMobileMenu();
 });
 </script>
 </body>
