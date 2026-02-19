@@ -721,7 +721,7 @@ Showroom finish, no full remodel 💰
         <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.44 2 2 0 0 1 3.58 1h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 8.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
         Call (425) 725-8134
       </a>
-      <a href="/cdn-cgi/l/email-protection#65020a0901000b0a040e15040c0b110c0b02250208040c094b060a08" class="btn-green-hero">📋 Request Free Estimate →</a>
+      <a href="mailto:goldenoakpainting@gmail.com" class="btn-green-hero">📋 Request Free Estimate →</a>
     </div>
     <div class="fcstats">
       <div class="fcstat"><span class="fcstat-icon">⭐</span><span class="fcstat-num">50+</span>&nbsp;5-Star Reviews</div>
@@ -785,7 +785,7 @@ Showroom finish, no full remodel 💰
   </div>
 </footer>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+<script>
 // TYPEWRITER
 (function(){
   const phrases=['Interior Painters.','Exterior Painters.','Cabinet Refinishers.','Deck Refinishers.','Drywall Experts.','Painting Done Right.'];
@@ -830,4 +830,7 @@ function toggleFaq(el){const item=el.parentElement;const was=item.classList.cont
 // MOBILE MENU
 function toggleMobileMenu(){const m=document.getElementById('mobileMenu'),b=document.getElementById('hamburger');const open=m.classList.contains('open');m.classList.toggle('open',!open);b.classList.toggle('open',!open);document.body.style.overflow=open?'':'hidden';}
 function closeMobileMenu(){document.getElementById('mobileMenu').classList.remove('open');document.getElementById('hamburger').classList.remove('open');document.body.style.overflow='';}
-document.addEventListener('click',e=>{const m=document.getElementById('mobileMenu'),b=docum
+document.addEventListener('click',e=>{const m=document.getElementById('mobileMenu'),b=document.getElementById('hamburger');if(m.classList.contains('open')&&!m.contains(e.target)&&!b.contains(e.target))closeMobileMenu();});
+</script>
+</body>
+</html>
