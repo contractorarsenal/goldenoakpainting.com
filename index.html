@@ -868,52 +868,116 @@ Showroom finish, no full remodel 💰
   </div>
 </footer>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+
 // TYPEWRITER
 (function(){
-  const phrases=['Interior Painters.','Exterior Painters.','Cabinet Refinishers.','Deck Refinishers.','Drywall Experts.','Painting Done Right.'];
-  const pauses=[1900,1900,1900,1900,1900,3000];
-  const el=document.getElementById('twText');
-  let pi=0,ci=0,del=false;
+  var phrases=['Interior Painters.','Exterior Painters.','Cabinet Refinishers.','Deck Refinishers.','Drywall Experts.','Painting Done Right.'];
+  var pauses=[1900,1900,1900,1900,1900,3000];
+  var el=document.getElementById('twText');
+  if(!el) return;
+  var pi=0,ci=0,del=false;
   function tick(){
-    const w=phrases[pi];
-    if(!del){el.textContent=w.slice(0,++ci);if(ci===w.length){del=true;return setTimeout(tick,pauses[pi]);}setTimeout(tick,70);}
-    else{el.textContent=w.slice(0,--ci);if(ci===0){del=false;pi=(pi+1)%phrases.length;return setTimeout(tick,380);}setTimeout(tick,36);}
+    var w=phrases[pi];
+    if(!del){
+      el.textContent=w.slice(0,++ci);
+      if(ci===w.length){del=true;setTimeout(tick,pauses[pi]);return;}
+      setTimeout(tick,70);
+    } else {
+      el.textContent=w.slice(0,--ci);
+      if(ci===0){del=false;pi=(pi+1)%phrases.length;setTimeout(tick,380);return;}
+      setTimeout(tick,36);
+    }
   }
-  setTimeout(tick,1300);
+  setTimeout(tick,800);
 })();
 
 // LIGHTBOX
-function openLightbox(src,cap){document.getElementById('lbImg').src=src;document.getElementById('lbCap').textContent=cap;document.getElementById('lightbox').classList.add('open');document.body.style.overflow='hidden';}
-function closeLightbox(){document.getElementById('lightbox').classList.remove('open');document.body.style.overflow='';}
-document.addEventListener('keydown',e=>{if(e.key==='Escape')closeLightbox();});
+function openLightbox(src,cap){
+  document.getElementById('lbImg').src=src;
+  document.getElementById('lbCap').textContent=cap;
+  document.getElementById('lightbox').classList.add('open');
+  document.body.style.overflow='hidden';
+}
+function closeLightbox(){
+  document.getElementById('lightbox').classList.remove('open');
+  document.body.style.overflow='';
+}
+window.openLightbox=openLightbox;
+window.closeLightbox=closeLightbox;
+document.addEventListener('keydown',function(e){if(e.key==='Escape')closeLightbox();});
 
-// SCROLL
-window.addEventListener('scroll',()=>{
-  const pct=window.scrollY/(document.body.scrollHeight-window.innerHeight)*100;
-  document.getElementById('progressBar').style.width=pct+'%';
-  document.getElementById('scrollTop').classList.toggle('visible',window.scrollY>400);
-  document.querySelectorAll('.nav-links a').forEach(a=>{
+// SCROLL PROGRESS + SCROLL TOP + NAV ACTIVE
+window.addEventListener('scroll',function(){
+  var pct=window.scrollY/(document.body.scrollHeight-window.innerHeight)*100;
+  var pb=document.getElementById('progressBar');
+  if(pb) pb.style.width=pct+'%';
+  var st=document.getElementById('scrollTop');
+  if(st) st.classList.toggle('visible',window.scrollY>400);
+  document.querySelectorAll('.nav-links a').forEach(function(a){
     a.classList.remove('active');
-    const s=document.querySelector(a.getAttribute('href'));
-    if(s&&window.scrollY>=s.offsetTop-120&&window.scrollY<s.offsetTop+s.offsetHeight-120)a.classList.add('active');
+    var href=a.getAttribute('href');
+    if(!href||href==='#') return;
+    var s=document.querySelector(href);
+    if(s&&window.scrollY>=s.offsetTop-120&&window.scrollY<s.offsetTop+s.offsetHeight-120)
+      a.classList.add('active');
   });
-  if(document.getElementById('mobileMenu').classList.contains('open'))closeMobileMenu();
+  var mm=document.getElementById('mobileMenu');
+  if(mm&&mm.classList.contains('open')) closeMobileMenu();
 });
 
-// REVEAL
-const io=new IntersectionObserver(entries=>{
-  entries.forEach(e=>{if(e.isIntersecting){e.target.classList.remove('animate-hidden');e.target.classList.add('in');io.unobserve(e.target);}});
+// SCROLL REVEAL
+var io=new IntersectionObserver(function(entries){
+  entries.forEach(function(e){
+    if(e.isIntersecting){
+      e.target.classList.remove('animate-hidden');
+      e.target.classList.add('in');
+      io.unobserve(e.target);
+    }
+  });
 },{threshold:0.05,rootMargin:'0px 0px -40px 0px'});
-document.querySelectorAll('.reveal').forEach((el,i)=>{
+document.querySelectorAll('.reveal').forEach(function(el){
   el.classList.add('animate-hidden');
   io.observe(el);
 });
 
 // FAQ
-function toggleFaq(el){const item=el.parentElement;const was=item.classList.contains('open');document.querySelectorAll('.faq-item').forEach(i=>i.classList.remove('open'));if(!was)item.classList.add('open');}
+function toggleFaq(el){
+  var item=el.parentElement;
+  var was=item.classList.contains('open');
+  document.querySelectorAll('.faq-item').forEach(function(i){i.classList.remove('open');});
+  if(!was) item.classList.add('open');
+}
+window.toggleFaq=toggleFaq;
 
 // MOBILE MENU
-function toggleMobileMenu(){const m=document.getElementById('mobileMenu'),b=document.getElementById('hamburger');const open=m.classList.contains('open');m.classList.toggle('open',!open);b.classList.toggle('open',!open);document.body.style.overflow=open?'':'hidden';}
-function closeMobileMenu(){document.getElementById('mobileMenu').classList.remove('open');document.getElementById('hamburger').classList.remove('open');document.body.style.overflow='';}
-document.addEventListener('click',e=>{const m=document.getElementById('mobileMenu'),b=docum
+function toggleMobileMenu(){
+  var m=document.getElementById('mobileMenu');
+  var b=document.getElementById('hamburger');
+  var open=m.classList.contains('open');
+  m.classList.toggle('open',!open);
+  b.classList.toggle('open',!open);
+  document.body.style.overflow=open?'':'hidden';
+}
+function closeMobileMenu(){
+  var m=document.getElementById('mobileMenu');
+  var b=document.getElementById('hamburger');
+  if(m) m.classList.remove('open');
+  if(b) b.classList.remove('open');
+  document.body.style.overflow='';
+}
+window.toggleMobileMenu=toggleMobileMenu;
+window.closeMobileMenu=closeMobileMenu;
+
+document.addEventListener('click',function(e){
+  var m=document.getElementById('mobileMenu');
+  var b=document.getElementById('hamburger');
+  if(m&&m.classList.contains('open')&&!m.contains(e.target)&&!b.contains(e.target))
+    closeMobileMenu();
+});
+
+}); // end DOMContentLoaded
+</script>
+</body>
+</html>
