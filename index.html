@@ -295,7 +295,8 @@ footer{background:var(--dark1);border-top:1px solid rgba(201,168,76,0.2);padding
 .footer-legal a:hover{color:var(--gold3)}
 
 /* REVEAL */
-.reveal{opacity:0;transform:translateY(28px);transition:opacity 0.65s ease,transform 0.65s ease}
+.reveal{opacity:1;transform:none;transition:opacity 0.65s ease,transform 0.65s ease}
+.reveal.animate-hidden{opacity:0;transform:translateY(28px)}
 .reveal.in{opacity:1;transform:none}
 
 /* HAMBURGER */
@@ -902,9 +903,12 @@ window.addEventListener('scroll',()=>{
 
 // REVEAL
 const io=new IntersectionObserver(entries=>{
-  entries.forEach(e=>{if(e.isIntersecting){const sib=[...e.target.parentElement.querySelectorAll('.reveal')];setTimeout(()=>e.target.classList.add('in'),Math.min(sib.indexOf(e.target)*90,300));io.unobserve(e.target);}});
-},{threshold:0.08});
-document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+  entries.forEach(e=>{if(e.isIntersecting){e.target.classList.remove('animate-hidden');e.target.classList.add('in');io.unobserve(e.target);}});
+},{threshold:0.05,rootMargin:'0px 0px -40px 0px'});
+document.querySelectorAll('.reveal').forEach((el,i)=>{
+  el.classList.add('animate-hidden');
+  io.observe(el);
+});
 
 // FAQ
 function toggleFaq(el){const item=el.parentElement;const was=item.classList.contains('open');document.querySelectorAll('.faq-item').forEach(i=>i.classList.remove('open'));if(!was)item.classList.add('open');}
